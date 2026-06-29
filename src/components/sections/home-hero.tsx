@@ -140,13 +140,13 @@ export function HomeHero({ countries = COUNTRIES }: HomeHeroProps) {
             </p>
 
             {/* Picker row */}
-            <div className="mt-4 flex items-stretch gap-0 overflow-hidden rounded-control border border-divider bg-white shadow-sm">
+            <div className="mt-4 flex items-stretch gap-0 rounded-control border border-divider bg-white shadow-sm">
               {/* CTA button */}
               <button
                 type="button"
                 onClick={go}
                 disabled={!selected}
-                className="flex-shrink-0 bg-ink px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-navy-deep disabled:opacity-60 lg:px-8"
+                className="flex-shrink-0 rounded-s-control bg-ink px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-navy-deep disabled:cursor-not-allowed disabled:opacity-60 lg:px-8"
               >
                 {t("قارن الآن")}
               </button>
