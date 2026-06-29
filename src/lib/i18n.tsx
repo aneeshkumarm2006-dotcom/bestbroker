@@ -168,6 +168,58 @@ const AR_TO_EN: Record<string, string> = {
     "The most trusted trading brokers in Bahrain for 2026",
   "أفضل وسطاء التداول الموثوقين في الأردن لعام 2026":
     "The most trusted trading brokers in Jordan for 2026",
+
+  // ── Redesigned /gcc page (header / hero / stats / compare / about) ───
+  "من نحن": "Who we are",
+  "تحذير المخاطر": "Risk warning",
+  "انضم إلينا كشريك": "Join us as a partner",
+  "لك": "for you",
+  "نساعدك في العثور على الوسيط الأنسب لاحتياجاتك، وفهم الاختلافات بين أفضل الوسطاء في كل بلد، بمراجعات مستقلة لا تتأثر بأي شركة وساطة.":
+    "We help you find the broker best suited to your needs and understand the differences between the best brokers in each country, with independent reviews unaffected by any brokerage firm.",
+  "اختر بلدك لتجد الوسيط الأفضل لك":
+    "Choose your country to find the best broker for you",
+  "قارن الآن": "Compare now",
+  "مستخدم": "Users",
+  "دولة": "Countries",
+  "مراجعة": "Reviews",
+  "المقارنة": "Comparison",
+  "يمكنك العثور على تحليلات وتقييمات للعلامات التجارية العالمية، وكذلك الوسطاء الأكثر تخصصًا في كل مجال.":
+    "You can find analyses and ratings of global brands, as well as the most specialized brokers in each field.",
+  "الوسيط": "Broker",
+  "النوع": "Type",
+  "تقييم المستخدمين": "User rating",
+  "قارن": "Compare",
+  "بيانات توضيحية لغرض عرض التصميم. التقييمات الفعلية تُحدَّث بشكل مستمر عند الإطلاق.":
+    "Illustrative data for design-preview purposes. Actual ratings are updated continuously at launch.",
+  "تداول اجتماعي ومنصة استثمار": "Social trading and investment platform",
+  "عقود الفروقات (CFDs)": "Contracts for difference (CFDs)",
+  "تداول عبر الإنترنت": "Online trading",
+  "نلتزم بتوفير معلومات محايدة وغير متحيزة لمستخدمينا. يقوم فريق الخبراء لدينا بمراجعة وتحليل الوسطاء والسوق بشكل مستمر، ولا يتأثر تحليلهم بأي مؤسسات مالية أو شركات وساطة.":
+    "We are committed to providing neutral, unbiased information to our users. Our team of experts continuously reviews and analyzes brokers and the market, and their analysis is not influenced by any financial institution or brokerage firm.",
+  "خدماتنا في أكثر من 50 دولة": "Our services in more than 50 countries",
+  "بغض النظر عن مكان تواجد مستخدمينا، يقدّم ميزان تغطية شاملة تمتد بين أوروبا وآسيا وأمريكا وأفريقيا.":
+    "No matter where our users are, Mizan provides comprehensive coverage spanning Europe, Asia, America and Africa.",
+  "أكثر من مليون مستخدم": "More than a million users",
+  "مستخدمونا هم أقوى دليل على جودتنا. منذ 2022، اعتمد أكثر من مليون مستخدم على ميزان لاتخاذ قرارات مستنيرة عند اختيار وسيطهم.":
+    "Our users are the strongest proof of our quality. Since 2022, more than a million users have relied on Mizan to make informed decisions when choosing their broker.",
+  "استقلالية كاملة في التحليل": "Complete independence in analysis",
+  "تحليلاتنا لا تتأثر بأي رسوم أو شراكات تجارية، ونحدّث تقييماتنا دوري لتعكس أداء كل وسيط فعلياً.":
+    "Our analyses are not influenced by any fees or commercial partnerships, and we update our ratings regularly to reflect each broker's actual performance.",
+
+  // ── Redesigned disclaimer band / footer ─────────────────────────────
+  "تحذير من المخاطر": "Risk warning",
+  "اقرأ المزيد": "Read more",
+  "© 2026 ميزان — جميع الحقوق محفوظة.": "© 2026 Mizan — All rights reserved.",
+  "هذا الموقع مورد مجاني مصمم لمساعدة المستخدمين في اتخاذ قرارات مستنيرة عبر الإنترنت. قد يضم محتوى مدعوماً أو إعلانات، وقد نحصل على عمولة من الوسطاء المذكورين عند تفاعلك معهم.":
+    "This website is a free resource designed to help users make informed decisions online. It may include sponsored content or advertising, and we may earn a commission from the brokers mentioned when you interact with them.",
+  "اعرف أكثر عن سياسة الإفصاح": "Learn more about our disclosure policy",
+  "الخرائط والنشر": "Sitemap & publishing",
+
+  // ── Partner hero ────────────────────────────────────────────────────
+  "كيف نخلق قيمة لشركائنا": "How we create value for our partners",
+
+  // ── Nations grid ────────────────────────────────────────────────────
+  "جميع البلدان": "All Countries",
 };
 
 interface LanguageContextValue {
