@@ -24,13 +24,13 @@ export function Footer() {
               {t("تحذير المخاطر")}
             </a>
             <a
-              href="https://www.iubenda.com/privacy-policy/42723864/cookie-policy"
+              href="/gcc/cookie-policy"
               className="transition-colors hover:text-brand"
             >
               {t("سياسة ملفات تعريف الارتباط")}
             </a>
             <a
-              href="https://www.iubenda.com/privacy-policy/42723864"
+              href="/gcc/privacy-policy"
               className="transition-colors hover:text-brand"
             >
               {t("سياسة الخصوصية")}
@@ -51,7 +51,7 @@ export function Footer() {
               )}
             </p>
             <a
-              href="https://www.iubenda.com/privacy-policy/42723864"
+              href="/gcc/privacy-policy"
               className="mt-2 inline-block underline underline-offset-2 hover:text-brand"
             >
               {t("اعرف أكثر عن سياسة الإفصاح")}

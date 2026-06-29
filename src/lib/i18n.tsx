@@ -226,6 +226,63 @@ const AR_TO_EN: Record<string, string> = {
   // ── Redesigned inner-page section labels ────────────────────────────
   "كن شريكاً": "Become a partner",
   "التصنيف": "The ranking",
+
+  // ── Policy pages (shared) ───────────────────────────────────────────
+  "القانوني": "Legal",
+  "آخر تحديث: يونيو 2026": "Last updated: June 2026",
+
+  // ── Cookie Policy page ──────────────────────────────────────────────
+  "توضّح هذه السياسة كيف يستخدم ميزان ملفات تعريف الارتباط والتقنيات المشابهة عند زيارتك لموقعنا، وما الخيارات المتاحة لك للتحكم بها.":
+    "This policy explains how Mizan uses cookies and similar technologies when you visit our website, and what choices you have to control them.",
+  "ما هي ملفات تعريف الارتباط؟": "What are cookies?",
+  "ملفات تعريف الارتباط (Cookies) هي ملفات نصية صغيرة يتم تخزينها على جهازك عند زيارتك لموقع ميزان. تساعدنا هذه الملفات على تذكّر تفضيلاتك، مثل اللغة المختارة، وعلى فهم كيفية تفاعلك مع الموقع لتحسين تجربتك.":
+    "Cookies are small text files that are stored on your device when you visit the Mizan website. They help us remember your preferences, such as your chosen language, and understand how you interact with the site so we can improve your experience.",
+  "أنواع ملفات تعريف الارتباط التي نستخدمها": "Types of cookies we use",
+  "ملفات ضرورية: لازمة لعمل الموقع بشكل صحيح، مثل حفظ تفضيل اللغة والتنقل بين الصفحات. لا يمكن تعطيلها لأنها أساسية لتشغيل الموقع.":
+    "Essential cookies: required for the site to work properly, such as saving your language preference and navigating between pages. They cannot be disabled because they are fundamental to running the site.",
+  "ملفات تحليلية: تساعدنا على معرفة عدد الزوار وكيفية استخدامهم للموقع بشكل مجهول الهوية، حتى نتمكن من تحسين المحتوى والأداء.":
+    "Analytics cookies: help us understand how many visitors we have and how they use the site anonymously, so we can improve content and performance.",
+  "ملفات إعلانية: تُستخدم لعرض محتوى وإعلانات أكثر صلة باهتماماتك، وقد يضعها شركاؤنا الإعلانيون لقياس فعالية الحملات.":
+    "Advertising cookies: used to show content and ads more relevant to your interests, and may be set by our advertising partners to measure campaign effectiveness.",
+  "كيف نستخدم ملفات تعريف الارتباط": "How we use cookies",
+  "نستخدم ملفات تعريف الارتباط لحفظ اختياراتك، وتحليل حركة المرور على الموقع، وتقديم تجربة مخصصة لك. لا نستخدم هذه الملفات لجمع معلومات تعرّف عنك شخصياً دون موافقتك.":
+    "We use cookies to save your choices, analyze traffic on the site, and provide a personalized experience. We do not use these files to collect personally identifiable information about you without your consent.",
+  "ملفات الأطراف الثالثة": "Third-party cookies",
+  "قد يضع بعض شركائنا، مثل مزودي خدمات التحليلات والمعلنين، ملفات تعريف ارتباط خاصة بهم عبر موقعنا. تخضع هذه الملفات لسياسات الخصوصية الخاصة بتلك الأطراف، ونوصيك بمراجعتها.":
+    "Some of our partners, such as analytics providers and advertisers, may set their own cookies through our site. These cookies are governed by the privacy policies of those parties, and we encourage you to review them.",
+  "كيفية إدارة ملفات تعريف الارتباط": "How to manage cookies",
+  "يمكنك التحكم في ملفات تعريف الارتباط أو حذفها في أي وقت من خلال إعدادات متصفحك. يُرجى العلم أن تعطيل بعض الملفات قد يؤثر على عمل أجزاء من الموقع.":
+    "You can control or delete cookies at any time through your browser settings. Please note that disabling some cookies may affect how parts of the site work.",
+
+  // ── Privacy Policy page ─────────────────────────────────────────────
+  "نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضّح هذه السياسة أنواع المعلومات التي نجمعها وكيفية استخدامها وحمايتها وحقوقك المتعلقة بها.":
+    "We respect your privacy and are committed to protecting your personal data. This policy explains the types of information we collect, how we use and protect it, and the rights you have regarding it.",
+  "المعلومات التي نجمعها": "Information we collect",
+  "نجمع المعلومات التي تقدّمها طوعاً عند التواصل معنا أو التسجيل كشريك، مثل الاسم والبريد الإلكتروني ورقم الهاتف وموقع الشركة.":
+    "We collect the information you voluntarily provide when you contact us or register as a partner, such as your name, email, phone number, and company website.",
+  "كما نجمع تلقائياً بيانات تقنية محدودة عند زيارتك للموقع، مثل نوع المتصفح ونظام التشغيل والصفحات التي تزورها، وذلك عبر ملفات تعريف الارتباط وتقنيات مشابهة.":
+    "We also automatically collect limited technical data when you visit the site, such as your browser type, operating system, and the pages you visit, through cookies and similar technologies.",
+  "كيف نستخدم معلوماتك": "How we use your information",
+  "نستخدم معلوماتك للرد على استفساراتك، وإدارة طلبات الشراكة، وتحسين محتوى الموقع وخدماته، وتحليل الأداء، والامتثال للمتطلبات القانونية.":
+    "We use your information to respond to your inquiries, manage partnership requests, improve the site's content and services, analyze performance, and comply with legal requirements.",
+  "لا نبيع معلوماتك الشخصية لأي طرف ثالث.":
+    "We do not sell your personal information to any third party.",
+  "مشاركة المعلومات": "Sharing information",
+  "قد نشارك معلوماتك مع مزودي خدمات موثوقين يساعدوننا في تشغيل الموقع، مثل خدمات الاستضافة والتحليلات، وذلك ضمن حدود ما هو ضروري لأداء عملهم وبموجب التزامات السرية.":
+    "We may share your information with trusted service providers who help us operate the site, such as hosting and analytics services, only to the extent necessary for them to perform their work and under confidentiality obligations.",
+  "قد نُفصح عن المعلومات إذا اقتضى القانون ذلك أو لحماية حقوقنا وسلامة مستخدمينا.":
+    "We may disclose information if required by law or to protect our rights and the safety of our users.",
+  "نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل استخدام الموقع. لمزيد من التفاصيل، يُرجى الاطلاع على سياسة ملفات تعريف الارتباط الخاصة بنا.":
+    "We use cookies to improve your experience and analyze site usage. For more details, please see our Cookie Policy.",
+  "أمن البيانات": "Data security",
+  "نتّخذ تدابير تقنية وتنظيمية معقولة لحماية معلوماتك من الوصول غير المصرّح به أو الفقدان أو سوء الاستخدام. ومع ذلك، لا يمكن ضمان أمان أي وسيلة نقل عبر الإنترنت بشكل مطلق.":
+    "We take reasonable technical and organizational measures to protect your information from unauthorized access, loss, or misuse. However, no method of transmission over the internet can be guaranteed to be absolutely secure.",
+  "حقوقك": "Your rights",
+  "يحق لك طلب الوصول إلى معلوماتك الشخصية أو تصحيحها أو حذفها، والاعتراض على معالجتها أو تقييدها. للممارسة أي من هذه الحقوق، يُرجى التواصل معنا.":
+    "You have the right to request access to, correction of, or deletion of your personal information, and to object to or restrict its processing. To exercise any of these rights, please contact us.",
+  "تواصل معنا": "Contact us",
+  "إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه أو كيفية تعاملنا مع بياناتك، يمكنك التواصل معنا عبر القنوات المتاحة على الموقع.":
+    "If you have any questions about this Privacy Policy or how we handle your data, you can contact us through the channels available on the site.",
 };
 
 interface LanguageContextValue {
