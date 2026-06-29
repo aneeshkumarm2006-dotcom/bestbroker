@@ -20,6 +20,8 @@ export interface Broker {
   name: string;
   /** Logo path under /bestbroker-ai-images/... (origin dropped). */
   logo: string;
+  /** Optional English-language logo, used when the active language is "en". */
+  logoEn?: string;
   /** Feature bullet list (Arabic, verbatim from source). */
   features: string[];
   /** Star rating 0–5. */
@@ -39,6 +41,7 @@ export const brokers: Broker[] = [
     rankNumber: "1",
     name: "Evest",
     logo: "/assets/img/brokers/evest.png",
+    logoEn: "/assets/img/brokers/evest-en.svg",
     features: [
       "مرخّص من CySEC قبرص و FSA سيشل",
       "حد أدنى منخفض للإيداع $50",
@@ -125,7 +128,7 @@ export function BrokerList({
   intro = "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
   brokers: items = brokers,
 }: BrokerListProps) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   return (
     <section className="relative w-full py-14 lg:py-20">
       <PageContainer>
@@ -172,7 +175,7 @@ export function BrokerList({
                     )}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={b.logo}
+                      src={lang === "en" && b.logoEn ? b.logoEn : b.logo}
                       alt={b.name}
                       className="h-auto max-h-12 w-auto max-w-[150px]"
                     />

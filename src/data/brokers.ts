@@ -7,6 +7,7 @@ import type { RouteData } from "./types";
 // spreads from 0.7 pips, swap-free Islamic account, MT5 + Evest App).
 const EVEST_HREF = "https://www.evest.com/en";
 const EVEST_LOGO = "/assets/img/brokers/evest.png";
+const EVEST_LOGO_EN = "/assets/img/brokers/evest-en.svg";
 const EVEST_FEATURES = [
   "مرخّص من CySEC قبرص و FSA سيشل",
   "حد أدنى منخفض للإيداع $50",
@@ -28,6 +29,7 @@ function evest(flagCode: string, flagText: string): Broker {
     rankNumber: "1",
     name: "Evest",
     logo: EVEST_LOGO,
+    logoEn: EVEST_LOGO_EN,
     features: EVEST_FEATURES,
     rating: 5,
     href: EVEST_HREF,
