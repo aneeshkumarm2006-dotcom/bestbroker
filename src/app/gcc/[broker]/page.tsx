@@ -28,19 +28,9 @@ export default function BrokerPage({
       <main>
         <BrokerTitleBand title={data.title} flagCode={data.flagCode} />
         <BrokerList intro={data.intro} brokers={data.brokers} />
-        {/*
-          Live `letter-k` divider sits ~50px below the cards (card-section
-          bottom gap + letter-k padding-top) with ~30px beneath the K. The
-          shared DisclaimerBand bakes `mb-14` (56px) below the K, so push it
-          down with `pt` and pull the footer up so the below-K gap lands at 30px.
-        */}
-        <div className="md:pt-[50px]">
-          <DisclaimerBand showWarning={false} />
-        </div>
+        <DisclaimerBand showWarning={false} />
       </main>
-      <div className="md:-mt-[26px]">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

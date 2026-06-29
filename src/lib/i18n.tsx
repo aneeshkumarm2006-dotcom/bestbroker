@@ -220,6 +220,12 @@ const AR_TO_EN: Record<string, string> = {
 
   // ── Nations grid ────────────────────────────────────────────────────
   "جميع البلدان": "All Countries",
+  "اختر بلدك للاطلاع على قائمة أفضل الوسطاء المعتمدين والمقارنة بينهم بمراجعات مستقلة ومحايدة.":
+    "Choose your country to view the list of top licensed brokers and compare them with independent, unbiased reviews.",
+
+  // ── Redesigned inner-page section labels ────────────────────────────
+  "كن شريكاً": "Become a partner",
+  "التصنيف": "The ranking",
 };
 
 interface LanguageContextValue {

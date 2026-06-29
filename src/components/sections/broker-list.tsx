@@ -1,6 +1,6 @@
 "use client";
 
-import { Container } from "@/components/ui/container";
+import { PageContainer } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
 
@@ -104,13 +104,14 @@ export function BrokerList({
 }: BrokerListProps) {
   const { t } = useLanguage();
   return (
-    <section className="relative w-full">
-      <Container>
-        <div className="relative z-[1] mx-auto w-full md:w-4/5">
-          {/* text__divider — intro subtitle */}
-          <div className="py-[25px] text-center">
-            <p className="text-lg font-extrabold text-ink">{t(intro)}</p>
-            <div className="mx-auto mt-3 h-1.5 w-16 rounded-full bg-brand-gradient" />
+    <section className="relative w-full py-12 lg:py-16">
+      <PageContainer>
+        <div className="relative z-[1] mx-auto w-full lg:w-4/5">
+          {/* Section header — matches the home page eyebrow + heading. */}
+          <div className="py-6 text-center">
+            <p className="text-sm font-bold text-brand">{t("التصنيف")}</p>
+            <p className="mt-2 text-2xl font-extrabold text-ink lg:text-3xl">{t(intro)}</p>
+            <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-brand-gradient" />
           </div>
 
           {items.map((b, i) => (
@@ -216,7 +217,7 @@ export function BrokerList({
             </article>
           ))}
         </div>
-      </Container>
+      </PageContainer>
     </section>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Container } from "@/components/ui/container";
+import { PageContainer } from "@/components/ui/container";
 import { useLanguage } from "@/lib/i18n";
 
 export interface BrokerTitleBandProps {
@@ -35,8 +35,8 @@ export function BrokerTitleBand({
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
       />
-      <Container className="relative flex items-center justify-center gap-5 py-[10px] md:py-[35px]">
-        <h1 className="text-[18px] font-extrabold leading-[30px] text-white md:text-[28px] md:leading-[42px]">
+      <PageContainer className="relative flex items-center justify-center gap-5 py-10 md:py-16">
+        <h1 className="text-center text-2xl font-extrabold leading-snug text-white md:text-4xl md:leading-tight">
           {t(title)}
         </h1>
         <span
@@ -45,7 +45,7 @@ export function BrokerTitleBand({
           className="block aspect-[16/9] w-full max-w-[50px] shrink-0 rounded-md border border-white/40 bg-cover bg-left-top shadow-lg"
           style={{ backgroundImage: `url('/assets/img/flags/${flagCode}.svg')` }}
         />
-      </Container>
+      </PageContainer>
     </section>
   );
 }
