@@ -3,7 +3,7 @@
 import { useLanguage } from "@/lib/i18n";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   return (
     <footer className="w-full border-t border-divider bg-surface pb-12 pt-10 text-muted">
       <div className="mx-auto w-full px-6 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-12 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
@@ -11,8 +11,8 @@ export function Footer() {
         <div className="mb-8 flex flex-col items-center justify-between gap-6 border-b border-divider pb-8 sm:flex-row">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/img/gcc/logo.svg"
-            alt="ميزان"
+            src={lang === "en" ? "/assets/img/gcc/logo-en.svg" : "/assets/img/gcc/logo.svg"}
+            alt={lang === "en" ? "Mizan" : "ميزان"}
             width={130}
             height={30}
           />

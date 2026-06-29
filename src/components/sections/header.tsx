@@ -25,7 +25,7 @@ const COMPARE_GROUPS: { code: string; label: string; href: string }[][] = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <header
@@ -39,8 +39,8 @@ export function Header() {
             <a href="/gcc" className="py-3 no-underline lg:py-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/assets/img/gcc/logo.svg"
-                alt="ميزان"
+                src={lang === "en" ? "/assets/img/gcc/logo-en.svg" : "/assets/img/gcc/logo.svg"}
+                alt={lang === "en" ? "Mizan" : "ميزان"}
                 width={150}
                 height={34}
               />
@@ -187,6 +187,7 @@ export function Header() {
  * Minimal logo-only header used on broker-detail pages.
  */
 export function BrokerHeader() {
+  const { lang } = useLanguage();
   return (
     <header className="w-full">
       <div className="border-b border-divider bg-surface py-[15px] md:py-[20px]">
@@ -194,8 +195,8 @@ export function BrokerHeader() {
           <a href="/gcc">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/img/gcc/logo.svg"
-              alt="ميزان"
+              src={lang === "en" ? "/assets/img/gcc/logo-en.svg" : "/assets/img/gcc/logo.svg"}
+              alt={lang === "en" ? "Mizan" : "ميزان"}
               width={150}
               height={34}
             />
