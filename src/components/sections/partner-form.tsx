@@ -107,7 +107,7 @@ export function PartnerForm() {
           <div className="relative basis-5/12">
             <div
               aria-hidden="true"
-              className="absolute top-0 mx-auto hidden h-0.5 w-8/12 border-l border-[rgb(18,80,179)]/20 lg:left-0 lg:block lg:top-[15%] lg:h-[70%] lg:w-auto"
+              className="absolute top-0 mx-auto hidden h-0.5 w-8/12 border-l border-divider lg:left-0 lg:block lg:top-[15%] lg:h-[70%] lg:w-auto"
             />
             <div className="ml-auto w-full lg:w-10/12">
               <form onSubmit={handleSubmit} noValidate>

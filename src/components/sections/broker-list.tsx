@@ -80,7 +80,7 @@ function Stars({ rating }: { rating: number }) {
       className="inline-block leading-none text-[18px] md:text-[24px]"
       style={{
         fontFamily: "Times",
-        backgroundImage: `linear-gradient(90deg, #FBBF24 ${percent}, #CBD2E5 ${percent})`,
+        backgroundImage: `linear-gradient(90deg, #B59028 ${percent}, #D4CAAE ${percent})`,
         WebkitBackgroundClip: "text",
         backgroundClip: "text",
         WebkitTextFillColor: "transparent",
@@ -177,7 +177,7 @@ export function BrokerList({
                       <span
                         role="img"
                         aria-label="flag"
-                        className="block aspect-[16/9] w-full max-w-[20px] shrink-0 border-[0.1px] border-solid border-black bg-cover bg-center md:max-w-[40px]"
+                        className="block aspect-[16/9] w-full max-w-[20px] shrink-0 rounded-sm border border-solid border-divider bg-cover bg-center md:max-w-[40px]"
                         style={{ backgroundImage: `url('${b.flag.src}')` }}
                       />
                     </div>
