@@ -1,9 +1,9 @@
 <svg width="176" height="40" viewBox="0 0 176 40" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="mzMark" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#6366F1"/>
-      <stop offset="0.55" stop-color="#8B5CF6"/>
-      <stop offset="1" stop-color="#22D3EE"/>
+      <stop stop-color="#C9A83C"/>
+      <stop offset="0.55" stop-color="#B59028"/>
+      <stop offset="1" stop-color="#8A6B12"/>
     </linearGradient>
   </defs>
   <rect x="1" y="2" width="36" height="36" rx="11" fill="url(#mzMark)"/>
@@ -15,5 +15,5 @@
     <path d="M28 14 L24.5 21.5 H31.5 Z" fill="rgba(255,255,255,0.28)"/>
   </g>
   <circle cx="19" cy="9.5" r="2" fill="#FFFFFF"/>
-  <text x="48" y="27.5" font-family="Cairo, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="800" letter-spacing="0.3" fill="#FFFFFF">Mizan</text>
+  <text x="48" y="27.5" font-family="Cairo, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="800" letter-spacing="0.3" fill="#0B1A30">ميزان</text>
 </svg>

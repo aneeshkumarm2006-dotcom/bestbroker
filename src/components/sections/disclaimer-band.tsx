@@ -3,55 +3,79 @@
 import { useLanguage } from "@/lib/i18n";
 
 export interface DisclaimerBandProps {
-  /**
-   * When false (broker-detail pages) only the gold "K" divider renders.
-   * Defaults to true (home page) so the risk-warning paragraphs show.
-   */
   showWarning?: boolean;
 }
 
-/**
- * Centered gold "K" divider followed by the investment risk-warning copy.
- * Source: home.html `main > section.mb-14.mt-20` (outer mt-20/mb-14 margins
- * are excluded per the crop-matching rule).
- *   - standard Tailwind `.container` (max-width breakpoints), centered
- *   - inner box: `w-10/12 mx-auto`, shifted `ml-4em` at lg (>=1024px)
- *   - K = /assets/img/gcc/Icon-K.svg at intrinsic size (w-max), centered, mb-14
- *   - paragraphs: 14px / 500, second paragraph separated by my-6 (1.5rem)
- */
+/** Gold diamond section divider + warm-tinted risk-warning box. */
 export function DisclaimerBand({ showWarning = true }: DisclaimerBandProps) {
   const { t } = useLanguage();
   return (
-    <section className="w-full">
-      <div className="container mx-auto">
-        <div className="mx-auto w-10/12 lg:ml-[4em]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/img/gcc/Icon-K.svg"
-            alt="BestBroker"
-            className="mx-auto mb-14 w-max"
-          />
-          {showWarning && (
-            <div className="rounded-card border border-divider bg-white/70 p-6 shadow-card backdrop-blur lg:p-10">
-              <p className="text-sm font-bold text-ink">
-                <span className="ml-1 text-brand">{t("تحذير من المخاطر:")}</span>
-                {t(
-                  "ينطوي الاستثمار على مخاطر عالية، بما في ذلك خطر خسارة بعض أو كل مبلغ استثمارك، وقد لا يكون مناسبًا لجميع المستثمرين."
-                )}
-              </p>
-              <p className="my-6 text-sm font-medium leading-relaxed text-muted">
-                {t(
-                  "يجب أن تتأكد انه بإمكانك تحمل المخاطرة العالية التي قد تؤدي إلى خسارة أموالك. قبل اتخاذ قرار بالتداول، يجب أن تكون على علم تام بالمخاطر والتكاليف المرتبطة بالاستثمار في الأسواق المالية. البيانات الواردة في هذا الموقع ليست بالضرورة ظاهرة في الوقت الحقيقي او دقيقة. لن يتحمل ميزان Mizan أو أي مزود للبيانات الواردة في هذا الموقع المسؤولية عن أي خسارة أو ضرر نتيجة لاستثمارك، أو اعتمادك على المعلومات الواردة في هذا الموقع."
-                )}
-              </p>
-              <p className="text-sm font-medium leading-relaxed text-muted">
-                {t(
-                  "قد يتم تعويض ميزان Mizan من قبل المعلنين الذين يظهرون على الموقع، بناءً على تفاعلك مع الإعلانات أو المعلنين."
-                )}
-              </p>
-            </div>
-          )}
+    <section id="disclaimer" className="w-full py-10">
+      <div className="mx-auto w-full px-6 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-12 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
+        {/* Gold diamond divider */}
+        <div className="mb-10 flex items-center gap-0">
+          <div className="h-px flex-1 bg-divider" />
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="mx-4 flex-shrink-0"
+            aria-hidden="true"
+          >
+            <rect
+              x="8"
+              y="0.5"
+              width="10.607"
+              height="10.607"
+              rx="1"
+              transform="rotate(45 8 0.5)"
+              fill="#B59028"
+            />
+          </svg>
+          <div className="h-px flex-1 bg-divider" />
         </div>
+
+        {showWarning && (
+          <div className="rounded-xl border border-[#E8C9B4] bg-[#FBF0E8] p-6 lg:p-10">
+            {/* Warning header */}
+            <div className="mb-4 flex items-center justify-end gap-2 text-right">
+              <p className="text-base font-bold text-ink">
+                {t("تحذير من المخاطر")}
+              </p>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M11 2L2 19h18L11 2z"
+                  stroke="#9B4F0F"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                  fill="rgba(155,79,15,0.08)"
+                />
+                <path d="M11 9v4" stroke="#9B4F0F" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="11" cy="15.5" r="0.75" fill="#9B4F0F" />
+              </svg>
+            </div>
+            <p className="text-sm leading-relaxed text-muted">
+              {t(
+                "ينطوي الاستثمار على مخاطر عالية، بما في ذلك خطر خسارة بعض أو كل مبلغ استثمارك، وقد لا يكون مناسبًا لجميع المستثمرين."
+              )}
+            </p>
+            <a
+              href="#"
+              className="mt-4 inline-block text-sm font-bold text-brand underline underline-offset-2 hover:text-brand-dark"
+            >
+              {t("اقرأ المزيد")}
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -16,7 +16,7 @@ export function LanguageToggle() {
       onClick={toggle}
       aria-label={lang === "ar" ? "Switch to English" : "التبديل إلى العربية"}
       dir="ltr"
-      className="fixed right-3 top-3 z-[100] inline-flex items-center gap-2 rounded-full border border-white/20 bg-ink/90 px-4 py-2 text-sm font-bold text-white shadow-control backdrop-blur-md transition-all hover:-translate-y-0.5 hover:text-accent hover:shadow-glow"
+      className="fixed right-3 top-3 z-[100] inline-flex items-center gap-2 rounded-full border border-divider bg-surface/90 px-4 py-2 text-sm font-bold text-ink shadow-card backdrop-blur-md transition-all hover:-translate-y-0.5 hover:text-brand hover:shadow-glow"
     >
       <svg
         width="16"

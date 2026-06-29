@@ -82,7 +82,6 @@ export function HomeHero({ countries = COUNTRIES }: HomeHeroProps) {
   const boxRef = React.useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
 
-  // Close the list when clicking outside (mirrors script.js window click).
   React.useEffect(() => {
     if (!open) return;
     const onClick = (e: MouseEvent) => {
@@ -99,149 +98,121 @@ export function HomeHero({ countries = COUNTRIES }: HomeHeroProps) {
   };
 
   return (
-    <section>
-      {/* Mirrors the live default Tailwind `.container` (100% with breakpoint
-          max-widths), NOT the 90%/85% shared primitive — the hero columns rely
-          on the full container width at mobile to size correctly. */}
-      <div className="mx-auto w-full px-6 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-24 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
-        <div className="flex flex-col-reverse items-center gap-8 lg:flex-row lg:gap-0">
-          {/* Copy + picker */}
-          <div className="flex-1">
-            <div className="w-full text-center lg:w-11/12 lg:text-left">
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-bold text-brand">
-                <span className="h-2 w-2 rounded-full bg-accent" />
-                {t("مقارنة مستقلة ومحايدة")}
-              </span>
-              <h1 className="mt-5 text-3xl font-semibold leading-tight lg:text-5xl lg:leading-tight">
-                {t("ابحث عن")} <br />
-                <span className="text-gradient font-extrabold">{t("الوسيط الأفضل")}</span>{t(" لك!")}
-              </h1>
-              <p className="mt-6 text-muted lg:mt-8">
-                {t(
-                  "سوف نساعدك في العثور على الوسيط الأنسب لاحتياجاتك! افهم الاختلافات بين أفضل الوسطاء في كل بلد."
-                )}
-              </p>
-              <p className="mt-6 font-bold lg:mt-8">
-                {t("اختر البلد لتجد الوسيط الأفضل لك")}
-              </p>
+    <section className="py-12 lg:py-20">
+      <div className="mx-auto w-full px-6 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-12 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
+        <div className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:gap-16">
 
-              <div className="mt-6 flex items-start gap-4 lg:mt-11 lg:gap-6">
-                {/* Country picker (custom combobox) */}
-                <div className="relative w-full">
-                  <div
-                    ref={boxRef}
-                    className={cn(
-                      "absolute left-0 top-0 z-10 w-full cursor-pointer rounded-control border border-divider bg-white px-6 py-4 shadow-control transition-colors hover:border-brand/40 lg:py-5",
-                      open && "border-brand/40 ring-2 ring-brand/15"
-                    )}
-                  >
-                    <div
-                      className="flex items-center justify-between"
-                      role="button"
-                      tabIndex={0}
-                      aria-haspopup="listbox"
-                      aria-expanded={open}
-                      onClick={() => setOpen((v) => !v)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          setOpen((v) => !v);
-                        }
-                      }}
-                    >
-                      <p className={cn("text-right font-semibold", !selected && "text-muted")}>{selected ? selected.name : t("اختر البلد")}</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className={cn(
-                          "origin-center transform transition-transform",
-                          open && "rotate-180"
-                        )}
-                        width="13"
-                        height="8"
-                        viewBox="0 0 13 8"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M12.4341 1.15674L6.65687 6.93395L1.00002 1.2771"
-                          stroke="black"
-                          strokeOpacity="0.5"
-                        />
-                      </svg>
-                    </div>
-                    <ul
-                      role="listbox"
-                      className={cn(
-                        "no-scrollbar overflow-y-scroll border-t border-divider",
-                        open
-                          ? "mt-4 h-80 pb-4"
-                          : "invisible h-0 opacity-0"
-                      )}
-                    >
-                      {countries.map((c, i) => (
-                        <li
-                          key={`${c.link}-${i}`}
-                          role="option"
-                          aria-selected={selected?.link === c.link}
-                          className="mt-4 flex cursor-pointer items-center gap-2 rounded-lg border-b border-divider px-2 py-3 text-left transition-colors hover:bg-brand/5 hover:text-brand"
-                          onClick={() => {
-                            setSelected(c);
-                            setOpen(false);
-                          }}
-                        >
-                          <div
-                            className={cn(
-                              "fib aspect-[4/3] w-10 rounded-md",
-                              `fi-${c.code}`
-                            )}
-                          />
-                          {c.name}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Go button */}
-                <button
-                  type="button"
-                  onClick={go}
-                  disabled={!selected}
-                  aria-label={t("اذهب")}
-                  className="flex flex-shrink-0 basis-2/12 cursor-pointer items-center justify-center rounded-control bg-brand-gradient py-5 shadow-control transition-all hover:-translate-y-0.5 hover:shadow-glow disabled:hover:translate-y-0 disabled:hover:shadow-control lg:py-6"
-                >
-                  <svg
-                    width="11"
-                    height="16"
-                    viewBox="0 0 11 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M8.77472 1.76004L2.93539 7.64317L8.77472 13.5263"
-                      stroke="white"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Illustration */}
-          <div className="relative mx-auto w-7/12 flex-1 pt-24 lg:w-auto lg:pt-0">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/25 blur-3xl lg:h-96 lg:w-96"
-            />
+          {/* Scales illustration — left column in RTL */}
+          <div className="relative mx-auto w-8/12 flex-shrink-0 lg:w-[380px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/img/gcc/illu-1_a.svg"
-              className="relative z-[1] lg:ml-auto lg:w-[400px]"
-              alt="Find out with us the Best Broker for you!"
+              className="relative z-[1] w-full"
+              alt="ابحث عن الوسيط الأفضل"
             />
+          </div>
+
+          {/* Copy + picker — right column in RTL */}
+          <div className="flex-1 text-center lg:text-right">
+            {/* Independent badge */}
+            <span className="inline-flex items-center gap-2 rounded-md border border-brand px-4 py-1.5 text-sm font-semibold text-brand">
+              <span className="h-2 w-2 rounded-full bg-brand" />
+              {t("مقارنة مستقلة ومحايدة")}
+            </span>
+
+            {/* Heading */}
+            <h1 className="mt-6 text-4xl font-bold leading-tight text-ink lg:text-5xl lg:leading-tight">
+              {t("ابحث عن")} <br />
+              <span className="text-gradient font-extrabold">{t("الوسيط الأفضل")}</span>{" "}
+              {t("لك")}
+            </h1>
+
+            {/* Description */}
+            <p className="mt-5 leading-relaxed text-muted">
+              {t(
+                "نساعدك في العثور على الوسيط الأنسب لاحتياجاتك، وفهم الاختلافات بين أفضل الوسطاء في كل بلد، بمراجعات مستقلة لا تتأثر بأي شركة وساطة."
+              )}
+            </p>
+
+            {/* Country label */}
+            <p className="mt-6 font-bold text-ink">
+              {t("اختر بلدك لتجد الوسيط الأفضل لك")}
+            </p>
+
+            {/* Picker row */}
+            <div className="mt-4 flex items-stretch gap-0 overflow-hidden rounded-control border border-divider bg-white shadow-sm">
+              {/* CTA button */}
+              <button
+                type="button"
+                onClick={go}
+                disabled={!selected}
+                className="flex-shrink-0 bg-ink px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-navy-deep disabled:opacity-60 lg:px-8"
+              >
+                {t("قارن الآن")}
+              </button>
+
+              {/* Country combobox */}
+              <div className="relative flex-1" ref={boxRef}>
+                <button
+                  type="button"
+                  aria-haspopup="listbox"
+                  aria-expanded={open}
+                  onClick={() => setOpen((v) => !v)}
+                  className="flex w-full items-center justify-between gap-2 px-4 py-4 text-right"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={cn(
+                      "flex-shrink-0 origin-center transform transition-transform",
+                      open && "rotate-180"
+                    )}
+                    width="13"
+                    height="8"
+                    viewBox="0 0 13 8"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12.4341 1.15674L6.65687 6.93395L1.00002 1.2771"
+                      stroke="#6B6357"
+                      strokeOpacity="0.8"
+                    />
+                  </svg>
+                  <span className={cn("flex-1 text-right font-semibold", !selected && "text-muted")}>
+                    {selected ? selected.name : t("اختر البلد")}
+                  </span>
+                </button>
+
+                {/* Dropdown list */}
+                {open && (
+                  <ul
+                    role="listbox"
+                    className="no-scrollbar absolute left-0 top-full z-20 max-h-72 w-full overflow-y-scroll rounded-b-control border border-t-0 border-divider bg-white shadow-card"
+                  >
+                    {countries.map((c, i) => (
+                      <li
+                        key={`${c.link}-${i}`}
+                        role="option"
+                        aria-selected={selected?.link === c.link}
+                        className="flex cursor-pointer items-center gap-3 border-b border-divider px-4 py-3 transition-colors hover:bg-brand/5 hover:text-brand"
+                        onClick={() => {
+                          setSelected(c);
+                          setOpen(false);
+                        }}
+                      >
+                        <div
+                          className={cn(
+                            "fib aspect-[4/3] w-8 flex-shrink-0 rounded",
+                            `fi-${c.code}`
+                          )}
+                        />
+                        <span className="text-sm">{c.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

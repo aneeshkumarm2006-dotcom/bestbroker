@@ -1,18 +1,3 @@
-/**
- * Global footer (home `footer`).
- *
- * Mirrors reference/source/css/gcc/footer.css for the home markup:
- *  - full-bleed black background, base color #606060 (`text-muted`)
- *  - padding 50px 0 90px (desktop) / 50px 0 (<=768px)
- *  - logo (right, RTL) + underlined white privacy links (left)
- *  - two columns: copyright (right, flex-basis 30%, 12px) + disclaimer block (left)
- *  - <=768px: stacked + centered logo/links, copyright centered with a top rule,
- *    disclaimer text stays right-aligned (RTL default)
- *
- * The 768px breakpoint is expressed with `max-[768px]:` so it triggers at
- * exactly 768px (matching the source `@media (max-width: 768px)`), unlike
- * Tailwind's `md:` which starts at min-width 768px.
- */
 "use client";
 
 import { useLanguage } from "@/lib/i18n";
@@ -20,67 +5,65 @@ import { useLanguage } from "@/lib/i18n";
 export function Footer() {
   const { t } = useLanguage();
   return (
-    <footer className="w-full border-t border-white/10 bg-navy-gradient pb-[90px] pt-[50px] text-slate-300 max-[768px]:pb-[50px]">
-      {/* footer > div.container — 85% width, max 1440, centered, column flex */}
-      <div className="mx-auto flex w-[85%] max-w-[1440px] flex-col">
-        {/* .footerlogo__flex */}
-        <div className="mb-[50px] flex items-center justify-between text-white max-[768px]:mb-[30px] max-[768px]:flex-col max-[768px]:gap-[30px]">
+    <footer className="w-full border-t border-divider bg-surface pb-12 pt-10 text-muted">
+      <div className="mx-auto w-full px-6 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-12 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
+        {/* Top row — logo + nav links */}
+        <div className="mb-8 flex flex-col items-center justify-between gap-6 border-b border-divider pb-8 sm:flex-row">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/img/gcc/logo.svg"
-            alt="BestBroker"
-            width={180}
-            height={31}
+            alt="ميزان"
+            width={130}
+            height={30}
           />
-          {/* .footer__link */}
-          <div className="flex items-center gap-[50px] text-[16px] max-[768px]:justify-center max-[768px]:gap-[20px] max-[768px]:text-[14px]">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
             <a
-              href="https://www.iubenda.com/privacy-policy/42723864"
-              title="Privacy Policy"
-              className="underline-offset-4 transition-colors hover:text-accent hover:underline"
+              href="/gcc#disclaimer"
+              className="transition-colors hover:text-brand"
             >
-              {t("سياسة الخصوصية")}
+              {t("تحذير المخاطر")}
             </a>
             <a
               href="https://www.iubenda.com/privacy-policy/42723864/cookie-policy"
-              title="Cookie Policy"
-              className="underline-offset-4 transition-colors hover:text-accent hover:underline"
+              className="transition-colors hover:text-brand"
             >
               {t("سياسة ملفات تعريف الارتباط")}
+            </a>
+            <a
+              href="https://www.iubenda.com/privacy-policy/42723864"
+              className="transition-colors hover:text-brand"
+            >
+              {t("سياسة الخصوصية")}
             </a>
           </div>
         </div>
 
-        {/* .footertext__flex */}
-        <div className="flex items-start max-[768px]:flex-col-reverse">
-          {/* .copyright__text */}
-          <div className="shrink-0 basis-[30%] text-[12px] max-[768px]:mt-[30px] max-[768px]:w-full max-[768px]:basis-auto max-[768px]:border-t max-[768px]:border-white/10 max-[768px]:pt-[30px] max-[768px]:text-center max-[768px]:text-[14px] max-[768px]:leading-[24px]">
-            <p className="mt-0 opacity-80">{t(" حقوق الطبع والنشر © 2026")}</p>
-            <p className="mt-0 opacity-80">
-              {t("Aeternum Tech srl. جميع الحقوق محفوظة.")}
-            </p>
-            <p className="mt-0 opacity-80">VAT IT17738071004</p>
+        {/* Bottom row — copyright + disclaimer */}
+        <div className="flex flex-col gap-6 text-xs leading-relaxed lg:flex-row lg:items-start lg:justify-between">
+          <div className="shrink-0 text-center lg:text-right">
+            <p>{t("© 2026 ميزان — جميع الحقوق محفوظة.")}</p>
+            <p className="mt-1">Aeternum Tech srl. VAT IT17738071004</p>
           </div>
+          <div className="max-w-3xl text-right leading-relaxed opacity-80">
+            <p>
+              {t(
+                "هذا الموقع مورد مجاني مصمم لمساعدة المستخدمين في اتخاذ قرارات مستنيرة عبر الإنترنت. قد يضم محتوى مدعوماً أو إعلانات، وقد نحصل على عمولة من الوسطاء المذكورين عند تفاعلك معهم."
+              )}
+            </p>
+            <a
+              href="https://www.iubenda.com/privacy-policy/42723864"
+              className="mt-2 inline-block underline underline-offset-2 hover:text-brand"
+            >
+              {t("اعرف أكثر عن سياسة الإفصاح")}
+            </a>
+          </div>
+        </div>
 
-          {/* .footer__paratxt */}
-          <div className="text-[12px]">
-            <p className="mb-[20px] mt-0 border-b border-white/10 pb-[50px] opacity-80">
-              {t(
-                "تم تصميم هذا الموقع لمساعدة المستخدمين في اتخاذ قرارات مستنيرة عبر الإنترنت، وهو يضم معلومات حول مجموعة واسعة من المنتجات والخدمات. يتم توفير بعض التفاصيل، بما في ذلك على سبيل المثال لا الحصر الأسعار والعروض الترويجية، من قبل شركائنا وهي ديناميكية وقادرة على التغيير في أي لحظة دون إشعار مسبق. على الرغم من أن المحتوى الخاص بنا يعتمد على بحث شامل، فلا ينبغي اعتباره نصيحة قانونية أو مهنية أو تنبؤًا، ولا ينبغي الاعتماد عليه على هذا النحو. لا تشكل قوائم الشركات على هذا الموقع تأييدًا. نحن لسنا مستشارين استثماريين أو سماسرة، ولا نقدم أي منتجات أو خدمات مباشرة للمستخدمين النهائيين، بل نسهل الاتصالات بين المستخدمين ومنصات شركائنا. يُحظر تمامًا إعادة الإنتاج غير المصرح به، كليًا أو جزئيًا."
-              )}
-            </p>
-            <h3 className="mb-[5px] mt-0 text-[14px] font-bold">{t("إفصاح إعلاني")}</h3>
-            <p className="mt-0 opacity-80">
-              {t(
-                "هذا الموقع هو مورد مجاني عبر الإنترنت يسعى جاهدًا لتقديم محتوى مفيد وميزات مقارنة لزوارنا. نحن نقبل تعويضات إعلانية من الشركات التي تظهر على الموقع، مما قد يؤثر على الموقع والترتيب الذي يتم به تقديم العلامات التجارية (و/أو منتجاتها)، وقد يؤثر أيضًا على النتيجة المخصصة لها. لا تعني قوائم الشركات على هذه الصفحة التأييد. لا نعرض جميع مقدمي الخدمة في السوق. باستثناء ما هو منصوص عليه صراحةً في شروط الاستخدام الخاصة بنا، فإن جميع التصريحات والضمانات المتعلقة بالمعلومات المقدمة على هذه الصفحة غير مسؤولة."
-              )}
-            </p>
-            <p className="mt-[20px] opacity-80">
-              {t(
-                "المعلومات، بما في ذلك الأسعار، التي تظهر على هذا الموقع قد تخضع للتغيير في أي وقت"
-              )}
-            </p>
-          </div>
+        {/* Site map row */}
+        <div className="mt-8 border-t border-divider pt-6 text-center text-xs">
+          <a href="/gcc/nations" className="transition-colors hover:text-brand">
+            {t("الخرائط والنشر")}
+          </a>
         </div>
       </div>
     </footer>
