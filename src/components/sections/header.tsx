@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
 
 /**
  * Country links shown inside the "قارن بين الوسطاء" dropdown (hidden until
@@ -27,6 +28,7 @@ const COMPARE_GROUPS: { code: string; label: string; href: string }[][] = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <header
@@ -93,7 +95,7 @@ export function Header() {
                 onClick={() => setDropdownOpen((v) => !v)}
               >
                 <p className="cursor-default whitespace-nowrap text-lg font-bold text-white transition-colors lg:hover:text-accent">
-                  قارن بين الوسطاء
+                  {t("قارن بين الوسطاء")}
                 </p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +145,7 @@ export function Header() {
                         href="/gcc/nations"
                         className="mt-5 flex font-extrabold text-brand underline decoration-2 underline-offset-4 hover:text-violet"
                       >
-                        المزيد من البلدان
+                        {t("المزيد من البلدان")}
                       </a>
                     )}
                   </div>
@@ -155,7 +157,7 @@ export function Header() {
               className="w-full py-2 text-lg font-bold text-white no-underline transition-colors lg:my-auto lg:ml-2 lg:rounded-cta lg:bg-brand-gradient lg:px-6 lg:py-2.5 lg:text-base lg:shadow-control lg:hover:-translate-y-0.5 lg:hover:shadow-glow"
               href="/gcc/partner"
             >
-              انضم الينا كشريك
+              {t("انضم الينا كشريك")}
             </a>
           </div>
         </nav>

@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
 
 /**
  * partner--signup-form — the "انضم الينا كشريك" lead form from /gcc/partner.
@@ -62,6 +63,7 @@ const ILLUS: Illu[] = [
 ];
 
 export function PartnerForm() {
+  const { t, lang } = useLanguage();
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     // No real backend — mirror the source's `return false` behaviour.
     event.preventDefault();
@@ -76,11 +78,11 @@ export function PartnerForm() {
           <div className="hidden lg:block lg:basis-7/12 lg:-mt-[84px]">
             <div className="w-full lg:w-11/12">
               <h1 className="text-3xl lg:text-5xl font-semibold leading-tight text-center text-ink lg:text-left">
-                انضم إلى شبكة <span className="text-gradient font-extrabold">الوسيط الأفضل</span>
-                التي تضم أفضل الوسطاء في مجال الوساطة المالية في العالم.
+                {t("انضم إلى شبكة ")}<span className="text-gradient font-extrabold">{t("الوسيط الأفضل")}</span>
+                {t("التي تضم أفضل الوسطاء في مجال الوساطة المالية في العالم.")}
               </h1>
               <p className="mt-6 lg:mt-10 text-base lg:text-2xl text-center text-muted">
-                كيف نخلق قيمة لشركائنا:
+                {t("كيف نخلق قيمة لشركائنا:")}
               </p>
               <div className="mt-6 flex flex-col gap-6 lg:flex-row">
                 {ILLUS.map((illu) => (
@@ -91,9 +93,9 @@ export function PartnerForm() {
                       className="mx-auto h-[150px] w-auto"
                     />
                     <p className="mt-6 text-center font-medium">
-                      {illu.before}
-                      <span className="font-bold">{illu.bold}</span>
-                      {illu.after}
+                      {t(illu.before)}
+                      <span className="font-bold">{t(illu.bold)}</span>
+                      {illu.after ? t(illu.after) : ""}
                     </p>
                   </div>
                 ))}
@@ -115,9 +117,9 @@ export function PartnerForm() {
                     id={field.id}
                     name={field.id}
                     type={field.type}
-                    placeholder={field.placeholder}
-                    aria-label={field.placeholder}
-                    dir="rtl"
+                    placeholder={t(field.placeholder)}
+                    aria-label={t(field.placeholder)}
+                    dir={lang === "ar" ? "rtl" : "ltr"}
                     required
                     className={cn(
                       "block w-full rounded-control border border-divider bg-surface p-5 outline-none transition-all placeholder:text-muted focus:border-brand/50 focus:bg-white focus:ring-2 focus:ring-brand/15",
@@ -130,7 +132,7 @@ export function PartnerForm() {
                     type="submit"
                     className="rounded-control bg-brand-gradient px-10 py-5 font-bold uppercase tracking-wider text-white shadow-control transition-all hover:-translate-y-0.5 hover:shadow-glow"
                   >
-                    لننمو معاً
+                    {t("لننمو معاً")}
                   </button>
                 </div>
               </form>

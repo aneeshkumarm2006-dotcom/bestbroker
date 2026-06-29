@@ -13,6 +13,10 @@
  * right-to-left, flag + text are start-aligned (= right).
  */
 
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
+
 type Country = {
   /** Display name, copied verbatim from source. */
   name: string;
@@ -58,11 +62,12 @@ export function NationsGrid({
 }: {
   columns?: Country[][];
 }) {
+  const { t } = useLanguage();
   return (
     <section className="w-full">
       <div className="container mx-auto px-6 lg:px-24 lg:pl-0">
         <h1 className="pt-24 text-3xl font-extrabold text-ink lg:pt-0 lg:text-5xl">
-          جميع <span className="text-gradient">البلدان</span>
+          {t("جميع ")}<span className="text-gradient">{t("البلدان")}</span>
         </h1>
         <div className="mb-6 mt-4 h-1.5 w-20 rounded-full bg-brand-gradient lg:mb-14" />
         <div className="flex flex-col gap-0 lg:flex-row lg:gap-6">

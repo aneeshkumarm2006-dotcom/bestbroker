@@ -1,5 +1,8 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
 
 export interface BrokerFlag {
   /** Flag asset under /assets/img/flags/<code>.svg (origin dropped). */
@@ -99,13 +102,14 @@ export function BrokerList({
   intro = "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
   brokers: items = brokers,
 }: BrokerListProps) {
+  const { t } = useLanguage();
   return (
     <section className="relative w-full">
       <Container>
         <div className="relative z-[1] mx-auto w-full md:w-4/5">
           {/* text__divider — intro subtitle */}
           <div className="py-[25px] text-center">
-            <p className="text-lg font-extrabold text-ink">{intro}</p>
+            <p className="text-lg font-extrabold text-ink">{t(intro)}</p>
             <div className="mx-auto mt-3 h-1.5 w-16 rounded-full bg-brand-gradient" />
           </div>
 
@@ -120,7 +124,7 @@ export function BrokerList({
             >
               {b.highlighted && (
                 <span className="absolute -top-3 right-6 z-10 rounded-full bg-brand-gradient px-4 py-1 text-[12px] font-extrabold text-white shadow-control">
-                  ⭐ الأفضل
+                  {t("⭐ الأفضل")}
                 </span>
               )}
               {/* card__flex */}
@@ -142,7 +146,7 @@ export function BrokerList({
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-gradient text-white shadow-control">
                       {b.rankNumber}
                     </span>
-                    <p>{b.rankLabel}</p>
+                    <p>{t(b.rankLabel)}</p>
                   </div>
                 </div>
 
@@ -151,7 +155,7 @@ export function BrokerList({
                   <ul className="list-disc py-2.5 pr-3 text-[14px] font-bold text-muted md:py-0 md:pr-0 md:text-[18px]">
                     {b.features.map((f, fi) => (
                       <li key={fi} className="md:my-2">
-                        {f}
+                        {t(f)}
                       </li>
                     ))}
                   </ul>
@@ -164,12 +168,12 @@ export function BrokerList({
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient text-white shadow-control">
                       {b.rankNumber}
                     </span>
-                    <p>{b.rankLabel}</p>
+                    <p>{t(b.rankLabel)}</p>
                   </div>
 
                   {b.flag && (
                     <div className="flex w-full items-center justify-center gap-2.5 border-y border-solid border-divider py-[5px] text-[12px] md:mt-5 md:w-auto md:border-y-0 md:py-0 md:text-[16px]">
-                      <p className="text-center">{b.flag.text}</p>
+                      <p className="text-center">{t(b.flag.text)}</p>
                       <span
                         role="img"
                         aria-label="flag"
@@ -189,7 +193,7 @@ export function BrokerList({
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2.5 rounded-cta bg-brand-gradient px-5 py-[15px] font-bold text-white shadow-control transition-all hover:-translate-y-0.5 hover:shadow-glow md:py-5"
                 >
-                  زيارة الموقع
+                  {t("زيارة الموقع")}
                   <svg
                     width="11"
                     height="16"
@@ -206,7 +210,7 @@ export function BrokerList({
                   </svg>
                 </a>
                 <p className="pt-2.5 text-center text-[10px] md:pt-[15px]">
-                  التداول يحمل مخاطر
+                  {t("التداول يحمل مخاطر")}
                 </p>
               </div>
             </article>

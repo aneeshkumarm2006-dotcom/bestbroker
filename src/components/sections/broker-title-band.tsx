@@ -1,4 +1,7 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
+import { useLanguage } from "@/lib/i18n";
 
 export interface BrokerTitleBandProps {
   /** H1 copy for the broker-detail route (Arabic, verbatim from source). */
@@ -20,6 +23,7 @@ export function BrokerTitleBand({
   title = "أفضل وسطاء التداول الموثوقين في الامارات لعام 2026",
   flagCode = "ae",
 }: BrokerTitleBandProps) {
+  const { t } = useLanguage();
   return (
     <section className="relative w-full overflow-hidden bg-navy-gradient">
       {/* Accent glow + bottom hairline */}
@@ -33,7 +37,7 @@ export function BrokerTitleBand({
       />
       <Container className="relative flex items-center justify-center gap-5 py-[10px] md:py-[35px]">
         <h1 className="text-[18px] font-extrabold leading-[30px] text-white md:text-[28px] md:leading-[42px]">
-          {title}
+          {t(title)}
         </h1>
         <span
           role="img"

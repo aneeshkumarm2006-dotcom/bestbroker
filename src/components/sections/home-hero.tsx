@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
 
 /**
  * home--hero — `main > section:nth-of-type(1)` on /gcc home.
@@ -79,6 +80,7 @@ export function HomeHero({ countries = COUNTRIES }: HomeHeroProps) {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState<HeroCountry | null>(null);
   const boxRef = React.useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   // Close the list when clicking outside (mirrors script.js window click).
   React.useEffect(() => {
@@ -108,18 +110,19 @@ export function HomeHero({ countries = COUNTRIES }: HomeHeroProps) {
             <div className="w-full text-center lg:w-11/12 lg:text-left">
               <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-sm font-bold text-brand">
                 <span className="h-2 w-2 rounded-full bg-accent" />
-                مقارنة مستقلة ومحايدة
+                {t("مقارنة مستقلة ومحايدة")}
               </span>
               <h1 className="mt-5 text-3xl font-semibold leading-tight lg:text-5xl lg:leading-tight">
-                ابحث عن <br />
-                <span className="text-gradient font-extrabold">الوسيط الأفضل</span> لك!
+                {t("ابحث عن")} <br />
+                <span className="text-gradient font-extrabold">{t("الوسيط الأفضل")}</span>{t(" لك!")}
               </h1>
               <p className="mt-6 text-muted lg:mt-8">
-                سوف نساعدك في العثور على الوسيط الأنسب لاحتياجاتك! افهم الاختلافات
-                بين أفضل الوسطاء في كل بلد.
+                {t(
+                  "سوف نساعدك في العثور على الوسيط الأنسب لاحتياجاتك! افهم الاختلافات بين أفضل الوسطاء في كل بلد."
+                )}
               </p>
               <p className="mt-6 font-bold lg:mt-8">
-                اختر البلد لتجد الوسيط الأفضل لك
+                {t("اختر البلد لتجد الوسيط الأفضل لك")}
               </p>
 
               <div className="mt-6 flex items-start gap-4 lg:mt-11 lg:gap-6">
@@ -146,7 +149,7 @@ export function HomeHero({ countries = COUNTRIES }: HomeHeroProps) {
                         }
                       }}
                     >
-                      <p className={cn("text-right font-semibold", !selected && "text-muted")}>{selected ? selected.name : "اختر البلد"}</p>
+                      <p className={cn("text-right font-semibold", !selected && "text-muted")}>{selected ? selected.name : t("اختر البلد")}</p>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className={cn(
@@ -204,7 +207,7 @@ export function HomeHero({ countries = COUNTRIES }: HomeHeroProps) {
                   type="button"
                   onClick={go}
                   disabled={!selected}
-                  aria-label="اذهب"
+                  aria-label={t("اذهب")}
                   className="flex flex-shrink-0 basis-2/12 cursor-pointer items-center justify-center rounded-control bg-brand-gradient py-5 shadow-control transition-all hover:-translate-y-0.5 hover:shadow-glow disabled:hover:translate-y-0 disabled:hover:shadow-control lg:py-6"
                 >
                   <svg

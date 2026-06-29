@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/i18n";
 
 /**
  * partner--hero — `main > section:nth-of-type(1)` of /gcc/partner (the `.pt-24`
@@ -19,29 +22,21 @@ import { Button } from "@/components/ui/button";
 const VALUE_PROPS = [
   {
     src: "/assets/img/gcc/illu-sm-1.svg",
-    body: (
-      <>
-        نشبك الوسطاء والمستخدمين من خلال تقنية{" "}
-        <span className="font-bold">الذكاء الاصطناعي</span>
-      </>
-    ),
+    before: "نشبك الوسطاء والمستخدمين من خلال تقنية ",
+    bold: "الذكاء الاصطناعي",
+    after: "",
   },
   {
     src: "/assets/img/gcc/illu-sm-2.svg",
-    body: (
-      <>
-        نعزز ثقة المستخدم من خلال توفير مصدر{" "}
-        <span className="font-bold">موثوق ومستقل</span> للمعلومات
-      </>
-    ),
+    before: "نعزز ثقة المستخدم من خلال توفير مصدر ",
+    bold: "موثوق ومستقل",
+    after: " للمعلومات",
   },
   {
     src: "/assets/img/gcc/illu-sm-3.svg",
-    body: (
-      <>
-        نوفر <span className="font-bold">فرص استثمارية</span> اكبر لشركائنا
-      </>
-    ),
+    before: "نوفر ",
+    bold: "فرص استثمارية",
+    after: " اكبر لشركائنا",
   },
 ];
 
@@ -53,6 +48,7 @@ const INPUTS = [
 ];
 
 export function PartnerHero() {
+  const { t } = useLanguage();
   return (
     <section className="relative pt-24 lg:pt-0">
       {/* Mobile-only faux global header captured by the crop (see note above). */}
@@ -69,7 +65,7 @@ export function PartnerHero() {
           </span>
           <button
             type="button"
-            aria-label="القائمة"
+            aria-label={t("القائمة")}
             className="relative flex h-12 w-12 flex-col justify-center gap-[6px]"
           >
             <span className="h-0.5 w-6 rounded-full bg-accent" />
@@ -89,12 +85,12 @@ export function PartnerHero() {
           <div className="basis-7/12">
             <div className="w-full lg:w-11/12">
               <h1 className="text-center text-3xl font-semibold leading-tight text-ink lg:text-left lg:text-5xl">
-                انضم إلى شبكة{" "}
-                <span className="text-gradient font-extrabold">الوسيط الأفضل</span>التي تضم
-                أفضل الوسطاء في مجال الوساطة المالية في العالم.
+                {t("انضم إلى شبكة ")}
+                <span className="text-gradient font-extrabold">{t("الوسيط الأفضل")}</span>
+                {t("التي تضم أفضل الوسطاء في مجال الوساطة المالية في العالم.")}
               </h1>
               <p className="mt-6 text-center text-base text-muted lg:mt-10 lg:text-2xl">
-                كيف نخلق قيمة لشركائنا:
+                {t("كيف نخلق قيمة لشركائنا:")}
               </p>
               <div className="mt-6 flex flex-col gap-6 lg:flex-row">
                 {VALUE_PROPS.map((prop, i) => (
@@ -105,7 +101,11 @@ export function PartnerHero() {
                       alt="best broker ai"
                       className="mx-auto max-[756px]:w-1/2 lg:h-[150px]"
                     />
-                    <p className="mt-6 text-center font-medium">{prop.body}</p>
+                    <p className="mt-6 text-center font-medium">
+                      {t(prop.before)}
+                      <span className="font-bold">{t(prop.bold)}</span>
+                      {t(prop.after)}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -117,7 +117,7 @@ export function PartnerHero() {
             <div className="absolute top-0 mx-auto h-0.5 w-8/12 border-l border-divider lg:left-0 lg:top-[15%] lg:h-[70%] lg:w-auto" />
             <div className="ml-auto w-full rounded-card border border-divider bg-white p-6 shadow-card lg:w-10/12 lg:p-8">
               <h3 className="mb-8 text-center text-2xl font-extrabold text-ink lg:mb-12 lg:text-3xl">
-                انضم الينا كشريك
+                {t("انضم الينا كشريك")}
               </h3>
               <form>
                 {INPUTS.map((input, i) => (
@@ -125,7 +125,7 @@ export function PartnerHero() {
                     key={input.name}
                     type={input.type}
                     name={input.name}
-                    placeholder={input.placeholder}
+                    placeholder={t(input.placeholder)}
                     dir={input.dir}
                     required
                     className={`block w-full rounded-control border border-divider bg-surface p-5 outline-none transition-all placeholder:text-muted focus:border-brand/50 focus:bg-white focus:ring-2 focus:ring-brand/15 ${
@@ -139,7 +139,7 @@ export function PartnerHero() {
                     variant="green"
                     className="h-auto rounded-2xl px-10 py-5 uppercase tracking-wider shadow-control"
                   >
-                    لننمو معاً
+                    {t("لننمو معاً")}
                   </Button>
                 </div>
               </form>

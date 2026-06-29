@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
+
 export interface DisclaimerBandProps {
   /**
    * When false (broker-detail pages) only the gold "K" divider renders.
@@ -16,6 +20,7 @@ export interface DisclaimerBandProps {
  *   - paragraphs: 14px / 500, second paragraph separated by my-6 (1.5rem)
  */
 export function DisclaimerBand({ showWarning = true }: DisclaimerBandProps) {
+  const { t } = useLanguage();
   return (
     <section className="w-full">
       <div className="container mx-auto">
@@ -29,22 +34,20 @@ export function DisclaimerBand({ showWarning = true }: DisclaimerBandProps) {
           {showWarning && (
             <div className="rounded-card border border-divider bg-white/70 p-6 shadow-card backdrop-blur lg:p-10">
               <p className="text-sm font-bold text-ink">
-                <span className="ml-1 text-brand">تحذير من المخاطر:</span>
-                ينطوي الاستثمار على مخاطر عالية، بما في ذلك خطر خسارة بعض أو كل
-                مبلغ استثمارك، وقد لا يكون مناسبًا لجميع المستثمرين.
+                <span className="ml-1 text-brand">{t("تحذير من المخاطر:")}</span>
+                {t(
+                  "ينطوي الاستثمار على مخاطر عالية، بما في ذلك خطر خسارة بعض أو كل مبلغ استثمارك، وقد لا يكون مناسبًا لجميع المستثمرين."
+                )}
               </p>
               <p className="my-6 text-sm font-medium leading-relaxed text-muted">
-                يجب أن تتأكد انه بإمكانك تحمل المخاطرة العالية التي قد تؤدي إلى
-                خسارة أموالك. قبل اتخاذ قرار بالتداول، يجب أن تكون على علم تام
-                بالمخاطر والتكاليف المرتبطة بالاستثمار في الأسواق المالية.
-                البيانات الواردة في هذا الموقع ليست بالضرورة ظاهرة في الوقت
-                الحقيقي او دقيقة. لن يتحمل ميزان Mizan أو أي مزود للبيانات الواردة
-                في هذا الموقع المسؤولية عن أي خسارة أو ضرر نتيجة لاستثمارك، أو
-                اعتمادك على المعلومات الواردة في هذا الموقع.
+                {t(
+                  "يجب أن تتأكد انه بإمكانك تحمل المخاطرة العالية التي قد تؤدي إلى خسارة أموالك. قبل اتخاذ قرار بالتداول، يجب أن تكون على علم تام بالمخاطر والتكاليف المرتبطة بالاستثمار في الأسواق المالية. البيانات الواردة في هذا الموقع ليست بالضرورة ظاهرة في الوقت الحقيقي او دقيقة. لن يتحمل ميزان Mizan أو أي مزود للبيانات الواردة في هذا الموقع المسؤولية عن أي خسارة أو ضرر نتيجة لاستثمارك، أو اعتمادك على المعلومات الواردة في هذا الموقع."
+                )}
               </p>
               <p className="text-sm font-medium leading-relaxed text-muted">
-                قد يتم تعويض ميزان Mizan من قبل المعلنين الذين يظهرون على الموقع،
-                بناءً على تفاعلك مع الإعلانات أو المعلنين.
+                {t(
+                  "قد يتم تعويض ميزان Mizan من قبل المعلنين الذين يظهرون على الموقع، بناءً على تفاعلك مع الإعلانات أو المعلنين."
+                )}
               </p>
             </div>
           )}

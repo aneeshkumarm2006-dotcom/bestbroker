@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
 
 const ASSETS = "/assets/img/gcc";
 
@@ -82,6 +85,7 @@ function Illustration({ feature }: { feature: AboutFeature }) {
 }
 
 function FeatureCard({ feature }: { feature: AboutFeature }) {
+  const { t } = useLanguage();
   return (
     <div className="basis-8/12">
       <div className="group relative overflow-hidden rounded-card border border-divider bg-white px-5 pb-8 pt-12 text-center shadow-card transition-all hover:-translate-y-1 hover:shadow-glow lg:px-24 lg:py-12">
@@ -95,9 +99,9 @@ function FeatureCard({ feature }: { feature: AboutFeature }) {
             feature.titleClassName,
           )}
         >
-          {feature.title}
+          {t(feature.title)}
         </h3>
-        <p className="mt-8 leading-relaxed text-muted">{feature.body}</p>
+        <p className="mt-8 leading-relaxed text-muted">{t(feature.body)}</p>
       </div>
     </div>
   );
@@ -108,12 +112,13 @@ export function HomeAbout({
 }: {
   features?: AboutFeature[];
 }) {
+  const { t } = useLanguage();
   return (
     <section>
       <div className="container mx-auto px-6">
         <div className="mx-auto w-full border-t border-divider lg:w-10/12">
           <h2 className="mt-20 text-center text-4xl font-extrabold text-ink lg:mb-4">
-            من نحن؟
+            {t("من نحن؟")}
           </h2>
           <div className="mx-auto mb-11 mt-4 h-1.5 w-20 rounded-full bg-brand-gradient" />
 
