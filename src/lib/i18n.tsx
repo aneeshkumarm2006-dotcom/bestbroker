@@ -94,6 +94,13 @@ const AR_TO_EN: Record<string, string> = {
   "لننمو معاً": "Let's grow together",
   "القائمة": "Menu",
 
+  // ── Broker detail hero (redesigned) ─────────────────────────────────
+  "قائمة مُحدّثة بأفضل الوسطاء المرخّصين، مع مقارنة مستقلة تساعدك على اختيار الأنسب لك.":
+    "An updated list of the best licensed brokers, with an independent comparison to help you choose the one best suited to you.",
+  "وسطاء مرخّصون": "Licensed brokers",
+  "مراجعات مستقلة": "Independent reviews",
+  "محدّث 2026": "Updated 2026",
+
   // ── Broker list (UI chrome) ─────────────────────────────────────────
   "ابدأ التداول بثقة مع أفضل الوسطاء في السوق":
     "Start trading with confidence with the best brokers in the market",

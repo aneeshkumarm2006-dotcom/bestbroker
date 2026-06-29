@@ -26,7 +26,7 @@ export interface Broker {
   rating: number;
   /** Affiliate CTA href. */
   href: string;
-  /** #1 card: 3px gold border + gold rank label. */
+  /** #1 card: gold ring + gold "best" ribbon. */
   highlighted?: boolean;
   /** Optional flag caption row (only the top-ranked broker has one). */
   flag?: BrokerFlag;
@@ -77,7 +77,7 @@ function Stars({ rating }: { rating: number }) {
   return (
     <span
       aria-label={`${rating} / 5`}
-      className="inline-block leading-none text-[18px] md:text-[24px]"
+      className="inline-block leading-none text-[18px] md:text-[20px]"
       style={{
         fontFamily: "Times",
         backgroundImage: `linear-gradient(90deg, #B59028 ${percent}, #D4CAAE ${percent})`,
@@ -91,12 +91,30 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
+/** Gold check badge that fronts every feature row. */
+function FeatureCheck() {
+  return (
+    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M20 6L9 17l-5-5"
+          stroke="currentColor"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
 /**
- * Ranked broker-list — template shared by every broker-detail route.
- * Source: `section.card__section` (gcc/landing-style.css). RTL three-column
- * card on >=768px (right: logo + stars, center: feature bullets, left: rank +
- * optional flag caption); stacks below 768px. The UAE page ships no
- * `.half__bg` element, so no gold band is rendered (matches the reference).
+ * Ranked broker-list — rebuilt to match the /gcc home design language.
+ * Section header reuses the home eyebrow + heading + gold underline. Each
+ * broker is a horizontal three-zone card (RTL): brand + rank medallion on the
+ * right, a gold-check feature grid in the middle, and the action panel (flag
+ * trust chip + gold CTA) on the left; the columns stack on mobile. The #1 card
+ * gets a gold ring, a gold top accent and a centred "best" ribbon.
  */
 export function BrokerList({
   intro = "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
@@ -104,118 +122,118 @@ export function BrokerList({
 }: BrokerListProps) {
   const { t } = useLanguage();
   return (
-    <section className="relative w-full py-12 lg:py-16">
+    <section className="relative w-full py-14 lg:py-20">
       <PageContainer>
-        <div className="relative z-[1] mx-auto w-full lg:w-4/5">
+        <div className="relative z-[1] mx-auto w-full lg:w-11/12 xl:w-4/5">
           {/* Section header — matches the home page eyebrow + heading. */}
-          <div className="py-6 text-center">
+          <div className="pb-10 text-center">
             <p className="text-sm font-bold text-brand">{t("التصنيف")}</p>
             <p className="mt-2 text-2xl font-extrabold text-ink lg:text-3xl">{t(intro)}</p>
             <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-brand-gradient" />
           </div>
 
-          {items.map((b, i) => (
-            <article
-              key={i}
-              className={cn(
-                "relative rounded-card border border-divider bg-white px-[25px] py-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-glow",
-                i < items.length - 1 && "mb-6",
-                b.highlighted && "border-brand/40 ring-2 ring-brand/40 ring-offset-2 ring-offset-surface"
-              )}
-            >
-              {b.highlighted && (
-                <span className="absolute -top-3 right-6 z-10 rounded-full bg-brand-gradient px-4 py-1 text-[12px] font-extrabold text-white shadow-control">
-                  {t("⭐ الأفضل")}
-                </span>
-              )}
-              {/* card__flex */}
-              <div className="flex flex-col pb-0 md:flex-row md:items-center md:justify-between md:pb-5">
-                {/* card__rating (right column on desktop) */}
-                <div className="flex w-full items-center justify-between gap-2.5 pb-2.5 md:flex-1 md:flex-col md:justify-center md:gap-5 md:p-5 md:pb-5">
-                  {/* cardlogo__text */}
-                  <div className="flex max-w-[55%] flex-col items-start gap-[5px] md:max-w-none md:gap-[15px]">
+          <div className="flex flex-col gap-6">
+            {items.map((b, i) => (
+              <article
+                key={i}
+                className={cn(
+                  "relative overflow-hidden rounded-card border border-divider bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-glow",
+                  b.highlighted && "border-brand/40 ring-2 ring-brand/30"
+                )}
+              >
+                {b.highlighted && (
+                  <>
+                    {/* Gold top accent + centred "best" ribbon. */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-0 top-0 h-1 bg-brand-gradient"
+                    />
+                    <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 rounded-b-xl bg-brand-gradient px-4 py-1 text-[12px] font-extrabold text-white shadow-control">
+                      {t("⭐ الأفضل")}
+                    </span>
+                  </>
+                )}
+
+                <div className="flex flex-col lg:flex-row lg:items-stretch">
+                  {/* Zone A — brand + rank (right column in RTL) */}
+                  <div className="flex flex-col items-center justify-center gap-3 px-6 pb-2 pt-9 lg:w-[210px] lg:shrink-0 lg:py-9">
+                    {b.rankNumber && (
+                      <div className="flex flex-col items-center gap-1.5">
+                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-gradient text-lg font-extrabold text-white shadow-control">
+                          {b.rankNumber}
+                        </span>
+                        <span className="text-[13px] font-bold text-brand">{t(b.rankLabel)}</span>
+                      </div>
+                    )}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={b.logo}
                       alt={b.name}
-                      className="h-auto max-w-full"
+                      className="h-auto max-h-12 w-auto max-w-[150px]"
                     />
-                    <Stars rating={b.rating} />
-                  </div>
-                  {/* card__number — mobile only */}
-                  <div className="flex flex-col items-center justify-center gap-2.5 pl-5 text-[12px] font-bold text-brand md:hidden">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-gradient text-white shadow-control">
-                      {b.rankNumber}
-                    </span>
-                    <p>{t(b.rankLabel)}</p>
-                  </div>
-                </div>
-
-                {/* card__features (center column) */}
-                <div className="flex w-full items-center justify-start border-t border-solid border-divider md:flex-[2] md:border-x md:border-t-0 md:pr-[30px]">
-                  <ul className="list-disc py-2.5 pr-3 text-[14px] font-bold text-muted md:py-0 md:pr-0 md:text-[18px]">
-                    {b.features.map((f, fi) => (
-                      <li key={fi} className="md:my-2">
-                        {t(f)}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* rank + flag (left column on desktop) */}
-                <div className="flex w-full flex-col items-center justify-center pb-2.5 md:flex-1 md:p-5">
-                  {/* card__number — desktop only (inherits 16px) */}
-                  <div className="hidden flex-col items-center justify-center gap-2.5 font-bold text-brand md:flex">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient text-white shadow-control">
-                      {b.rankNumber}
-                    </span>
-                    <p>{t(b.rankLabel)}</p>
+                    {b.rating > 0 && <Stars rating={b.rating} />}
                   </div>
 
-                  {b.flag && (
-                    <div className="flex w-full items-center justify-center gap-2.5 border-y border-solid border-divider py-[5px] text-[12px] md:mt-5 md:w-auto md:border-y-0 md:py-0 md:text-[16px]">
-                      <p className="text-center">{t(b.flag.text)}</p>
-                      <span
-                        role="img"
-                        aria-label="flag"
-                        className="block aspect-[16/9] w-full max-w-[20px] shrink-0 rounded-sm border border-solid border-divider bg-cover bg-center md:max-w-[40px]"
-                        style={{ backgroundImage: `url('${b.flag.src}')` }}
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
+                  {/* Zone B — feature check list (center column) */}
+                  <div className="flex flex-1 items-center border-y border-divider px-6 py-5 lg:border-x lg:border-y-0 lg:px-8">
+                    <ul className="flex w-full flex-col gap-3">
+                      {b.features.map((f, fi) => (
+                        <li key={fi} className="flex items-start gap-2.5">
+                          <FeatureCheck />
+                          <span className="text-[14px] font-semibold leading-snug text-ink/80 [overflow-wrap:anywhere] md:text-[15px]">
+                            {t(f)}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-              {/* card__cta */}
-              <div>
-                <a
-                  href={b.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 rounded-cta bg-brand-gradient px-5 py-[15px] font-bold text-white shadow-control transition-all hover:-translate-y-0.5 hover:shadow-glow md:py-5"
-                >
-                  {t("زيارة الموقع")}
-                  <svg
-                    width="11"
-                    height="16"
-                    viewBox="0 0 11 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.77472 1.76004L2.93539 7.64317L8.77472 13.5263"
-                      stroke="white"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </a>
-                <p className="pt-2.5 text-center text-[10px] md:pt-[15px]">
-                  {t("التداول يحمل مخاطر")}
-                </p>
-              </div>
-            </article>
-          ))}
+                  {/* Zone C — action panel (left column in RTL) */}
+                  <div className="flex flex-col justify-center gap-3 px-6 pb-8 pt-5 lg:w-[244px] lg:shrink-0 lg:py-9">
+                    {b.flag && (
+                      <div className="flex items-center justify-center gap-2 rounded-xl border border-brand/20 bg-brand/5 px-3 py-2">
+                        <span
+                          role="img"
+                          aria-label="flag"
+                          className="block aspect-[16/9] w-7 shrink-0 rounded-[3px] border border-divider bg-cover bg-center"
+                          style={{ backgroundImage: `url('${b.flag.src}')` }}
+                        />
+                        <p className="text-[12px] font-semibold leading-tight text-ink">
+                          {t(b.flag.text)}
+                        </p>
+                      </div>
+                    )}
+                    <a
+                      href={b.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 rounded-cta bg-brand-gradient px-5 py-3.5 font-bold text-white shadow-control transition-all hover:-translate-y-0.5 hover:shadow-glow"
+                    >
+                      {t("زيارة الموقع")}
+                      <svg
+                        width="9"
+                        height="14"
+                        viewBox="0 0 11 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M8.77472 1.76004L2.93539 7.64317L8.77472 13.5263"
+                          stroke="white"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </a>
+                    <p className="text-center text-[10px] text-muted">
+                      {t("التداول يحمل مخاطر")}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </PageContainer>
     </section>
