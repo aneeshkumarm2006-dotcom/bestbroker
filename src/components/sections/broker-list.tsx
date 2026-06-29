@@ -32,21 +32,21 @@ export interface Broker {
   flag?: BrokerFlag;
 }
 
-/** Default UAE broker data, extracted verbatim from reference/source/html/uae.html. */
+/** Default broker data — Evest is the top-recommended broker site-wide. */
 export const brokers: Broker[] = [
   {
     rankLabel: "المركز الأول",
     rankNumber: "1",
-    name: "WR PRO",
-    logo: "/bestbroker-ai-images/2025/02/26/d6b9f1e705217379b833b89b0725c2a711444ed9.png",
+    name: "Evest",
+    logo: "/assets/img/brokers/evest.png",
     features: [
-      "ترخيص FSC",
-      "شفافية ومصداقية %100",
-      "حسابات ذكاء اصطناعي AI اسلامية",
-      "تضمين التداول الآلي",
+      "مرخّص من CySEC قبرص و FSA سيشل",
+      "حد أدنى منخفض للإيداع $50",
+      "فروقات سعرية تبدأ من 0.7 نقطة",
+      "حساب إسلامي بدون فوائد (سواب-فري)",
     ],
     rating: 5,
-    href: "https://mx.wygmax.com/u/b/2958039/J9Bbo5Q8hBQ5/?affclickid=bestbrokergcc-null___null___null___bestbrokergcc_wrpro___null___null&MPC_4=8876",
+    href: "https://www.evest.com/en",
     highlighted: true,
     flag: {
       src: "/assets/img/flags/ae.svg",
@@ -56,11 +56,16 @@ export const brokers: Broker[] = [
   {
     rankLabel: "المركز الثاني",
     rankNumber: "2",
-    name: "eVest",
-    logo: "/bestbroker-ai-images/2024/10/05/9fb4dc53f0c366275e393f1b49601d3c50380b93.png",
-    features: ["ترخيص FSCA", "تداول النسخ", "حسابات إسلامية"],
+    name: "Weltrade",
+    logo: "/bestbroker-ai-images/2025/02/26/d6b9f1e705217379b833b89b0725c2a711444ed9.png",
+    features: [
+      "ترخيص FSC",
+      "شفافية ومصداقية %100",
+      "حسابات ذكاء اصطناعي AI اسلامية",
+      "تضمين التداول الآلي",
+    ],
     rating: 5,
-    href: "https://lp.evestpartners.com/tracking//click/?affid=40155&lpId=21791&adTheme=271&campaign=136047&affclickid=bestbroker-null[-]null[-]null[-]bestbrokergcc_evest[-]null[-]null&utm_campaign=null&utm_adgroup=null",
+    href: "https://mx.wygmax.com/u/b/2958039/J9Bbo5Q8hBQ5/?affclickid=bestbrokergcc-null___null___null___bestbrokergcc_wrpro___null___null&MPC_4=8876",
   },
 ];
 

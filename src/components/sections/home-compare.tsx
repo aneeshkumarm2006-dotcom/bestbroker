@@ -4,6 +4,12 @@ import { useLanguage } from "@/lib/i18n";
 
 const FEATURED_BROKERS = [
   {
+    name: "Evest",
+    type: "وسيط متعدد الأصول مرخّص",
+    rating: 5,
+    href: "/gcc/best-broker-gcc-uae-ar",
+  },
+  {
     name: "eToro",
     type: "تداول اجتماعي ومنصة استثمار",
     rating: 4,
@@ -18,7 +24,7 @@ const FEATURED_BROKERS = [
   {
     name: "Capital.com",
     type: "تداول عبر الإنترنت",
-    rating: 5,
+    rating: 4,
     href: "/gcc/best-broker-gcc-uae-ar",
   },
 ];

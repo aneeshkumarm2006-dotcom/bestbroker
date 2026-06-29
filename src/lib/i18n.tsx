@@ -115,6 +115,10 @@ const AR_TO_EN: Record<string, string> = {
   "المركز الرابع": "4th Place",
 
   // ── Broker features ─────────────────────────────────────────────────
+  "مرخّص من CySEC قبرص و FSA سيشل": "Regulated by CySEC Cyprus & FSA Seychelles",
+  "حد أدنى منخفض للإيداع $50": "Low minimum deposit of $50",
+  "فروقات سعرية تبدأ من 0.7 نقطة": "Spreads from 0.7 pips",
+  "حساب إسلامي بدون فوائد (سواب-فري)": "Swap-free Islamic account",
   "ترخيص FSC": "FSC License",
   "شفافية ومصداقية %100": "100% transparency and credibility",
   "حسابات ذكاء اصطناعي AI اسلامية": "Islamic AI accounts",
@@ -153,6 +157,7 @@ const AR_TO_EN: Record<string, string> = {
   "منصة التداول الأفضل في الكويت": "The best trading platform in Kuwait",
   "منصة التداول الأفضل في عُمان": "The best trading platform in Oman",
   "منصة التداول الأفضل في البحرين": "The best trading platform in Bahrain",
+  "منصة التداول الأفضل في الأردن": "The best trading platform in Jordan",
 
   // ── Broker page titles ──────────────────────────────────────────────
   "أفضل وسطاء التداول الموثوقين في الامارات لعام 2026":
@@ -198,6 +203,7 @@ const AR_TO_EN: Record<string, string> = {
   "قارن": "Compare",
   "بيانات توضيحية لغرض عرض التصميم. التقييمات الفعلية تُحدَّث بشكل مستمر عند الإطلاق.":
     "Illustrative data for design-preview purposes. Actual ratings are updated continuously at launch.",
+  "وسيط متعدد الأصول مرخّص": "Regulated multi-asset broker",
   "تداول اجتماعي ومنصة استثمار": "Social trading and investment platform",
   "عقود الفروقات (CFDs)": "Contracts for difference (CFDs)",
   "تداول عبر الإنترنت": "Online trading",
