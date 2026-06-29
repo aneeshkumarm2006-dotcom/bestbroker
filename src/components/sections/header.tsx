@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
+import { LanguageToggle } from "@/components/language-toggle";
 
 const COMPARE_GROUPS: { code: string; label: string; href: string }[][] = [
   [
@@ -170,6 +171,11 @@ export function Header() {
             >
               {t("انضم إلينا كشريك")}
             </a>
+
+            {/* Language toggle */}
+            <div className="mt-3 sm:mt-0 lg:mt-0">
+              <LanguageToggle />
+            </div>
           </div>
         </nav>
       </div>
