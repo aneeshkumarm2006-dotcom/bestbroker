@@ -125,12 +125,12 @@ function FeatureCheck() {
  * gets a gold ring, a gold top accent and a centred "best" ribbon.
  */
 export function BrokerList({
-  intro = "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
+  intro = "أفضل وسطاء التداول الموثوقين في الإمارات لعام 2026",
   brokers: items = brokers,
 }: BrokerListProps) {
   const { t, lang } = useLanguage();
   return (
-    <section className="relative w-full py-14 lg:py-20">
+    <section id="brokers" className="relative w-full py-14 lg:py-20">
       <PageContainer>
         <div className="relative z-[1] mx-auto w-full lg:w-11/12 xl:w-4/5">
           {/* Section header — matches the home page eyebrow + heading. */}

@@ -68,12 +68,6 @@ export function DisclaimerBand({ showWarning = true }: DisclaimerBandProps) {
                 "ينطوي الاستثمار على مخاطر عالية، بما في ذلك خطر خسارة بعض أو كل مبلغ استثمارك، وقد لا يكون مناسبًا لجميع المستثمرين."
               )}
             </p>
-            <a
-              href="#"
-              className="mt-4 inline-block text-sm font-bold text-brand underline underline-offset-2 hover:text-brand-dark"
-            >
-              {t("اقرأ المزيد")}
-            </a>
           </div>
         )}
       </div>

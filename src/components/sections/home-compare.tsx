@@ -7,13 +7,13 @@ const FEATURED_BROKERS = [
     name: "Evest",
     type: "وسيط متعدد الأصول مرخّص",
     rating: 5,
-    href: "/gcc/best-broker-gcc-uae-ar",
+    href: "#brokers",
   },
   {
     name: "Afaq",
     type: "وسيط إسلامي بحسابات بدون فوائد",
     rating: 5,
-    href: "/gcc/best-broker-gcc-uae-ar",
+    href: "#brokers",
   },
 ];
 
@@ -46,13 +46,13 @@ export function HomeCompare() {
 
         {/* Heading */}
         <h2 className="mt-2 text-3xl font-extrabold text-ink lg:text-4xl">
-          {t("نقارن أفضل الوسطاء في العالم")}
+          {t("نقارن أفضل الوسطاء في الإمارات")}
         </h2>
 
         {/* Description */}
         <p className="mt-3 max-w-xl leading-relaxed text-muted">
           {t(
-            "يمكنك العثور على تحليلات وتقييمات للعلامات التجارية العالمية، وكذلك الوسطاء الأكثر تخصصًا في كل مجال."
+            "تحليلات وتقييمات مستقلة للوسطاء المرخّصين المتاحين للمتداولين في الإمارات، مع مقارنة سريعة قبل الاطلاع على التصنيف الكامل."
           )}
         </p>
 

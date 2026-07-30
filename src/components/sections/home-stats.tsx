@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/i18n";
 
+// Placeholder figures for the design preview — swap for real numbers at launch.
 const STATS = [
   { value: 1000000, suffix: "+", label: "مستخدم" },
-  { value: 50, suffix: "+", label: "دولة" },
+  { value: 20, suffix: "+", label: "وسيط مُقيَّم" },
   { value: 500, suffix: "+", label: "مراجعة" },
 ];
 

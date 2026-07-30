@@ -17,23 +17,14 @@ export function Footer() {
             height={30}
           />
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <a
-              href="/gcc#disclaimer"
-              className="transition-colors hover:text-brand"
-            >
+            <a href="#brokers" className="transition-colors hover:text-brand">
+              {t("التصنيف")}
+            </a>
+            <a href="#about" className="transition-colors hover:text-brand">
+              {t("من نحن")}
+            </a>
+            <a href="#disclaimer" className="transition-colors hover:text-brand">
               {t("تحذير المخاطر")}
-            </a>
-            <a
-              href="/gcc/cookie-policy"
-              className="transition-colors hover:text-brand"
-            >
-              {t("سياسة ملفات تعريف الارتباط")}
-            </a>
-            <a
-              href="/gcc/privacy-policy"
-              className="transition-colors hover:text-brand"
-            >
-              {t("سياسة الخصوصية")}
             </a>
           </div>
         </div>
@@ -50,20 +41,7 @@ export function Footer() {
                 "هذا الموقع مورد مجاني مصمم لمساعدة المستخدمين في اتخاذ قرارات مستنيرة عبر الإنترنت. قد يضم محتوى مدعوماً أو إعلانات، وقد نحصل على عمولة من الوسطاء المذكورين عند تفاعلك معهم."
               )}
             </p>
-            <a
-              href="/gcc/privacy-policy"
-              className="mt-2 inline-block underline underline-offset-2 hover:text-brand"
-            >
-              {t("اعرف أكثر عن سياسة الإفصاح")}
-            </a>
           </div>
-        </div>
-
-        {/* Site map row */}
-        <div className="mt-8 border-t border-divider pt-6 text-center text-xs">
-          <a href="/gcc/nations" className="transition-colors hover:text-brand">
-            {t("الخرائط والنشر")}
-          </a>
         </div>
       </div>
     </footer>
