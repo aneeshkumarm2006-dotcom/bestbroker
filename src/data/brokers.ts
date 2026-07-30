@@ -52,7 +52,7 @@ const AFAQ: BaseBroker = {
     "تركيز على التعليم باللغة العربية",
   ],
   rating: 5,
-  href: "https://campaign.afaqpartners.trade/Tracking/click/?affid=60003&lpId=20004&adTheme=3&campaign=1001&affclickid=bestbrokergcc-null[-]null[-]null[-]bestbrokergcc_afaq[-]null[-]null&utm_campaign=null&utm_adgroup=null",
+  href: "https://afaq.trade/",
 };
 
 // Trust captions per country (English copies live in src/lib/i18n.tsx).
