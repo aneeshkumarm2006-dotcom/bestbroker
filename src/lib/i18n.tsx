@@ -35,8 +35,8 @@ const AR_TO_EN: Record<string, string> = {
   "نحن ملتزمون بتوفير معلومات محايدة وغير متحيزة لمستخدمينا. يقوم فريق الخبراء لدينا بمراجعة وتحليل الوسطاء والسوق بشكل مستمر، ولا يتأثر تحليلهم بأي مؤسسات مالية أو شركات وساطة.":
     "We are committed to providing neutral, unbiased information to our users. Our team of experts continuously reviews and analyzes brokers and the market, and their analysis is not influenced by any financial institution or brokerage firm.",
   "نقارن أفضل الوسطاء في العالم": "We compare the world's best brokers",
-  "يمكن لمستخدمي ميزان Mizan العثور على تحليلات وتقييمات للعلامات التجارية العالمية مثل eToro وCapital.com وPlus500، وكذلك الوسطاء الأكثر تخصصًا والأكثر تميزًا في هذا المجال":
-    "Mizan users can find analyses and ratings of global brands such as eToro, Capital.com and Plus500, as well as the more specialized and distinguished brokers in the field.",
+  "يمكن لمستخدمي ميزان Mizan العثور على تحليلات وتقييمات مستقلة لأفضل الوسطاء المرخّصين، مع مقارنة تساعدهم على اختيار الأنسب لهم":
+    "Mizan users can find independent analyses and ratings of the best licensed brokers, with a comparison that helps them choose the one best suited to them.",
   "نوفر خدماتنا في أكثر من 50 دولة":
     "We offer our services in more than 50 countries",
   "بغض النظر عن مكان تواجد مستخدمينا، يهدف ميزان Mizan إلى تقديم خدمة شاملة من خلال تغطية أكثر من 50 دولة ما بين أوروبا وآسيا وأمريكا وأفريقيا.":
@@ -111,41 +111,17 @@ const AR_TO_EN: Record<string, string> = {
   // ── Broker rank labels ──────────────────────────────────────────────
   "المركز الأول": "1st Place",
   "المركز الثاني": "2nd Place",
-  "المركز الثالث": "3rd Place",
-  "المركز الرابع": "4th Place",
 
   // ── Broker features ─────────────────────────────────────────────────
   "مرخّص من CySEC قبرص و FSA سيشل": "Regulated by CySEC Cyprus & FSA Seychelles",
   "حد أدنى منخفض للإيداع $50": "Low minimum deposit of $50",
   "فروقات سعرية تبدأ من 0.7 نقطة": "Spreads from 0.7 pips",
   "حساب إسلامي بدون فوائد (سواب-فري)": "Swap-free Islamic account",
-  "ترخيص FSC": "FSC License",
-  "شفافية ومصداقية %100": "100% transparency and credibility",
-  "حسابات ذكاء اصطناعي AI اسلامية": "Islamic AI accounts",
-  "تضمين التداول الآلي": "Automated trading included",
-  "ترخيص FSCA": "FSCA License",
-  "تداول النسخ": "Copy trading",
-  "حسابات إسلامية": "Islamic accounts",
-  "ترخيص FCA/CYSEC/ASIC/CMA/SCB": "FCA/CYSEC/ASIC/CMA/SCB License",
-  "0% عمولات (تُطبّق رسوم أخرى)": "0% commissions (other fees apply)",
-  "تحديد مرن لحجم المركز": "Flexible position sizing",
-  "رافعة مالية مخصصة": "Custom leverage",
-  "ترخيص CYSEC/FSCA/FSA/ADGM": "CYSEC/FSCA/FSA/ADGM License",
-  "نسخ التداول أصبح سهلاً بناءً على فئة الأصول":
-    "Copy trading made easy by asset class",
-  "مدرجة علنًا في بورصة فرانكفورت":
-    "Publicly listed on the Frankfurt Stock Exchange",
   "حسابات إسلامية بدون فوائد ربوية":
     "Islamic accounts with no usurious interest",
   "عروض ترحيبية مستمرة": "Ongoing welcome offers",
   "دعم مباشر محلي وحسابات تجريبية": "Local live support and demo accounts",
   "تركيز على التعليم باللغة العربية": "Focus on education in Arabic",
-  "ترخيص ASIC/SCB/FCA/DFSA/CMA/BaFin/CySEC":
-    "ASIC/SCB/FCA/DFSA/CMA/BaFin/CySEC License",
-  "تم التصويت له كأفضل وسيط على MetaTrader 4":
-    "Voted best broker on MetaTrader 4",
-  "احصل على خصومات على الفروقات السعرية للتداول عالي التردد":
-    "Get spread discounts for high-frequency trading",
   "تداول النفط بسهولة مع أفضل الشروط والأسعار - فرصتك لتحقيق الأرباح الآن":
     "Trade oil easily with the best terms and prices — your chance to make profits now",
 
@@ -204,9 +180,7 @@ const AR_TO_EN: Record<string, string> = {
   "بيانات توضيحية لغرض عرض التصميم. التقييمات الفعلية تُحدَّث بشكل مستمر عند الإطلاق.":
     "Illustrative data for design-preview purposes. Actual ratings are updated continuously at launch.",
   "وسيط متعدد الأصول مرخّص": "Regulated multi-asset broker",
-  "تداول اجتماعي ومنصة استثمار": "Social trading and investment platform",
-  "عقود الفروقات (CFDs)": "Contracts for difference (CFDs)",
-  "تداول عبر الإنترنت": "Online trading",
+  "وسيط إسلامي بحسابات بدون فوائد": "Islamic broker with swap-free accounts",
   "نلتزم بتوفير معلومات محايدة وغير متحيزة لمستخدمينا. يقوم فريق الخبراء لدينا بمراجعة وتحليل الوسطاء والسوق بشكل مستمر، ولا يتأثر تحليلهم بأي مؤسسات مالية أو شركات وساطة.":
     "We are committed to providing neutral, unbiased information to our users. Our team of experts continuously reviews and analyzes brokers and the market, and their analysis is not influenced by any financial institution or brokerage firm.",
   "خدماتنا في أكثر من 50 دولة": "Our services in more than 50 countries",

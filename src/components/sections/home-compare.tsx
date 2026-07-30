@@ -10,21 +10,9 @@ const FEATURED_BROKERS = [
     href: "/gcc/best-broker-gcc-uae-ar",
   },
   {
-    name: "eToro",
-    type: "تداول اجتماعي ومنصة استثمار",
-    rating: 4,
-    href: "/gcc/best-broker-gcc-uae-ar",
-  },
-  {
-    name: "Plus500",
-    type: "عقود الفروقات (CFDs)",
-    rating: 4,
-    href: "/gcc/best-broker-gcc-uae-ar",
-  },
-  {
-    name: "Capital.com",
-    type: "تداول عبر الإنترنت",
-    rating: 4,
+    name: "Afaq",
+    type: "وسيط إسلامي بحسابات بدون فوائد",
+    rating: 5,
     href: "/gcc/best-broker-gcc-uae-ar",
   },
 ];

@@ -59,16 +59,16 @@ export const brokers: Broker[] = [
   {
     rankLabel: "المركز الثاني",
     rankNumber: "2",
-    name: "Weltrade",
-    logo: "/bestbroker-ai-images/2025/02/26/d6b9f1e705217379b833b89b0725c2a711444ed9.png",
+    name: "Afaq",
+    logo: "/bestbroker-ai-images/2025/07/21/7a5b394fcc351f02fbbc9f33210cb39f862b46a9.png",
     features: [
-      "ترخيص FSC",
-      "شفافية ومصداقية %100",
-      "حسابات ذكاء اصطناعي AI اسلامية",
-      "تضمين التداول الآلي",
+      "حسابات إسلامية بدون فوائد ربوية",
+      "عروض ترحيبية مستمرة",
+      "دعم مباشر محلي وحسابات تجريبية",
+      "تركيز على التعليم باللغة العربية",
     ],
     rating: 5,
-    href: "https://mx.wygmax.com/u/b/2958039/J9Bbo5Q8hBQ5/?affclickid=bestbrokergcc-null___null___null___bestbrokergcc_wrpro___null___null&MPC_4=8876",
+    href: "https://campaign.afaqpartners.trade/Tracking/click/?affid=60003&lpId=20004&adTheme=3&campaign=1001&affclickid=bestbrokergcc-null[-]null[-]null[-]bestbrokergcc_afaq[-]null[-]null&utm_campaign=null&utm_adgroup=null",
   },
 ];
 

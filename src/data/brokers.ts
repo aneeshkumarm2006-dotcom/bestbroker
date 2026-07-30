@@ -16,12 +16,7 @@ const EVEST_FEATURES = [
   "حساب إسلامي بدون فوائد (سواب-فري)",
 ];
 
-const RANK_LABELS = [
-  "المركز الأول",
-  "المركز الثاني",
-  "المركز الثالث",
-  "المركز الرابع",
-];
+const RANK_LABELS = ["المركز الأول", "المركز الثاني"];
 
 /** Build the Evest #1 card with the country-specific trust caption. */
 function evest(flagCode: string, flagText: string): Broker {
@@ -44,58 +39,8 @@ function ranked(n: number, base: Omit<Broker, "rankLabel" | "rankNumber">): Brok
   return { rankLabel: RANK_LABELS[n - 1], rankNumber: String(n), ...base };
 }
 
-// ── Secondary comparison brokers (shown below Evest) ────────────────────────
+// ── Afaq — the single secondary broker, ranked #2 site-wide ─────────────────
 type BaseBroker = Omit<Broker, "rankLabel" | "rankNumber" | "highlighted" | "flag">;
-
-const WELTRADE: BaseBroker = {
-  name: "Weltrade",
-  logo: "/bestbroker-ai-images/2025/02/26/d6b9f1e705217379b833b89b0725c2a711444ed9.png",
-  features: [
-    "ترخيص FSC",
-    "شفافية ومصداقية %100",
-    "حسابات ذكاء اصطناعي AI اسلامية",
-    "تضمين التداول الآلي",
-  ],
-  rating: 5,
-  href: "https://mx.wygmax.com/u/b/2958039/J9Bbo5Q8hBQ5/?affclickid=bestbrokergcc-null___null___null___bestbrokergcc_wrpro___null___null&MPC_4=8876",
-};
-
-const CAPITAL: BaseBroker = {
-  name: "Capital.com",
-  logo: "/bestbroker-ai-images/2025/06/06/c277ec62e8be04a7818027a4c347f8009f834fb8.png",
-  features: [
-    "ترخيص FCA/CYSEC/ASIC/CMA/SCB",
-    "0% عمولات (تُطبّق رسوم أخرى)",
-    "تحديد مرن لحجم المركز",
-    "رافعة مالية مخصصة",
-  ],
-  rating: 5,
-  href: "https://go.capital.com/visit/?bta=44561&nci=7766&afp=bestbrokergcc-null[-]null[-]null[-]bestbrokergcc_capital[-]null[-]null",
-};
-
-const NAGA: BaseBroker = {
-  name: "NAGA",
-  logo: "/bestbroker-ai-images/2024/12/09/b1156ec3d1b7bec1b8ce830c69e13f3e06cb5fc8.jpg",
-  features: [
-    "ترخيص CYSEC/FSCA/FSA/ADGM",
-    "نسخ التداول أصبح سهلاً بناءً على فئة الأصول",
-    "مدرجة علنًا في بورصة فرانكفورت",
-  ],
-  rating: 5,
-  href: "https://go.joinnaga.com/21KSRHH/5JQ8NT/?uid=196&sub1=bestbrokergcc-null[-]null[-]null[-]bestbrokergcc_naga[-]null[-]null",
-};
-
-const PEPPERSTONE: BaseBroker = {
-  name: "Pepperstone",
-  logo: "/bestbroker-ai-images/2024/12/23/16daff041a00149ac5bc37295c3d0a2a3b9e1615.jpg",
-  features: [
-    "ترخيص ASIC/SCB/FCA/DFSA/CMA/BaFin/CySEC",
-    "تم التصويت له كأفضل وسيط على MetaTrader 4",
-    "احصل على خصومات على الفروقات السعرية للتداول عالي التردد",
-  ],
-  rating: 5,
-  href: "https://track.pepperstonepartners.com/visit/?bta=40745&nci=5399&utm_campaign=null&landingPage=https%253A%252F%252Fsecure.pepperstone.com%252Fregister%252Fform%253Fcountry%253DBH%2526licence%253Dscb%2526locale%253Dar&afp=bestbrokergcc-null[-]null[-]null[-]bestbrokergcc_pepperstone[-]null[-]null",
-};
 
 const AFAQ: BaseBroker = {
   name: "Afaq",
@@ -121,6 +66,14 @@ const CAPTION = {
   jo: "منصة التداول الأفضل في الأردن",
 } as const;
 
+/**
+ * Every route shows the same two-broker line-up: Evest at #1 (with the
+ * country-specific trust caption) and Afaq at #2.
+ */
+function lineup(flagCode: string, caption: string): Broker[] {
+  return [evest(flagCode, caption), ranked(2, AFAQ)];
+}
+
 // Auto-generated from the live /gcc broker pages; Evest promoted to #1 site-wide.
 export const routes: RouteData[] = [
   {
@@ -129,7 +82,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في الامارات لعام 2026",
     flagCode: "ae",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("ae", CAPTION.ae), ranked(2, WELTRADE)],
+    brokers: lineup("ae", CAPTION.ae),
   },
   {
     slug: "uae-salik",
@@ -137,7 +90,7 @@ export const routes: RouteData[] = [
     title: "فرصة شراء سهم سالك في الإمارات",
     flagCode: "ae",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("ae", CAPTION.ae), ranked(2, WELTRADE)],
+    brokers: lineup("ae", CAPTION.ae),
   },
   {
     slug: "uae-localstocks",
@@ -145,7 +98,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في الامارات لعام 2026",
     flagCode: "ae",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("ae", CAPTION.ae), ranked(2, WELTRADE)],
+    brokers: lineup("ae", CAPTION.ae),
   },
   {
     slug: "uae-oil",
@@ -153,7 +106,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في الامارات لعام 2026",
     flagCode: "ae",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("ae", CAPTION.ae), ranked(2, WELTRADE)],
+    brokers: lineup("ae", CAPTION.ae),
   },
   {
     slug: "uae-tests",
@@ -161,7 +114,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في الكويت لعام 2026",
     flagCode: "kw",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("kw", CAPTION.kw), ranked(2, CAPITAL), ranked(3, WELTRADE)],
+    brokers: lineup("kw", CAPTION.kw),
   },
   {
     slug: "sa",
@@ -169,7 +122,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في السعودية لعام 2026",
     flagCode: "sa",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("sa", CAPTION.sa), ranked(2, WELTRADE)],
+    brokers: lineup("sa", CAPTION.sa),
   },
   {
     slug: "sa-islamic",
@@ -177,7 +130,7 @@ export const routes: RouteData[] = [
     title: "تداول في أسواق المال في السعودية باستخدام حسابات إسلامية",
     flagCode: "sa",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("sa", CAPTION.sa), ranked(2, WELTRADE)],
+    brokers: lineup("sa", CAPTION.sa),
   },
   {
     slug: "sa-oil",
@@ -185,7 +138,7 @@ export const routes: RouteData[] = [
     title: "تداول في أسواق النفط في السعودية",
     flagCode: "sa",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("sa", CAPTION.sa), ranked(2, WELTRADE)],
+    brokers: lineup("sa", CAPTION.sa),
   },
   {
     slug: "qa",
@@ -193,7 +146,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في قطر لعام 2026",
     flagCode: "qa",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("qa", CAPTION.qa), ranked(2, WELTRADE), ranked(3, NAGA)],
+    brokers: lineup("qa", CAPTION.qa),
   },
   {
     slug: "qa-oil",
@@ -201,7 +154,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في قطر لعام 2026",
     flagCode: "qa",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("qa", CAPTION.qa), ranked(2, WELTRADE), ranked(3, NAGA)],
+    brokers: lineup("qa", CAPTION.qa),
   },
   {
     slug: "kw",
@@ -209,7 +162,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في الكويت لعام 2026",
     flagCode: "kw",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("kw", CAPTION.kw), ranked(2, WELTRADE), ranked(3, NAGA)],
+    brokers: lineup("kw", CAPTION.kw),
   },
   {
     slug: "kw-localstocks",
@@ -217,7 +170,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في الكويت لعام 2026",
     flagCode: "kw",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("kw", CAPTION.kw), ranked(2, WELTRADE), ranked(3, NAGA)],
+    brokers: lineup("kw", CAPTION.kw),
   },
   {
     slug: "kw-oil",
@@ -225,7 +178,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في الكويت لعام 2026",
     flagCode: "kw",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("kw", CAPTION.kw), ranked(2, WELTRADE), ranked(3, NAGA)],
+    brokers: lineup("kw", CAPTION.kw),
   },
   {
     slug: "om",
@@ -233,12 +186,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في عُمان لعام 2026",
     flagCode: "om",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [
-      evest("om", CAPTION.om),
-      ranked(2, AFAQ),
-      ranked(3, NAGA),
-      ranked(4, CAPITAL),
-    ],
+    brokers: lineup("om", CAPTION.om),
   },
   {
     slug: "om-oil",
@@ -246,12 +194,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في عُمان لعام 2026",
     flagCode: "om",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [
-      evest("om", CAPTION.om),
-      ranked(2, AFAQ),
-      ranked(3, NAGA),
-      ranked(4, CAPITAL),
-    ],
+    brokers: lineup("om", CAPTION.om),
   },
   {
     slug: "bh",
@@ -259,7 +202,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في البحرين لعام 2026",
     flagCode: "bh",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("bh", CAPTION.bh), ranked(2, NAGA), ranked(3, PEPPERSTONE)],
+    brokers: lineup("bh", CAPTION.bh),
   },
   {
     slug: "bh-oil",
@@ -267,7 +210,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في البحرين لعام 2026",
     flagCode: "bh",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("bh", CAPTION.bh), ranked(2, NAGA), ranked(3, PEPPERSTONE)],
+    brokers: lineup("bh", CAPTION.bh),
   },
   {
     slug: "jo",
@@ -275,7 +218,7 @@ export const routes: RouteData[] = [
     title: "أفضل وسطاء التداول الموثوقين في الأردن لعام 2026",
     flagCode: "jo",
     intro: "ابدأ التداول بثقة مع أفضل الوسطاء في السوق",
-    brokers: [evest("jo", CAPTION.jo)],
+    brokers: lineup("jo", CAPTION.jo),
   },
 ];
 
