@@ -49,7 +49,7 @@ export const brokers: Broker[] = [
       "حساب إسلامي بدون فوائد (سواب-فري)",
     ],
     rating: 5,
-    href: "https://www.evest.com/en",
+    href: "https://lp.evestpartners.com/tracking//click/?affid=40659&campaign=136597&product_id=2&t_type=Signup&t_lang=EN",
     highlighted: true,
     flag: {
       src: "/assets/img/flags/ae.svg",

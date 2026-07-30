@@ -5,7 +5,8 @@ import type { RouteData } from "./types";
 // Evest is ranked #1 and highlighted on every route. Facts come from the
 // reviewed Evest profile (CySEC Cyprus + FSA Seychelles, $50 min deposit,
 // spreads from 0.7 pips, swap-free Islamic account, MT5 + Evest App).
-const EVEST_HREF = "https://www.evest.com/en";
+const EVEST_HREF =
+  "https://lp.evestpartners.com/tracking//click/?affid=40659&campaign=136597&product_id=2&t_type=Signup&t_lang=EN";
 const EVEST_LOGO = "/assets/img/brokers/evest.png";
 const EVEST_LOGO_EN = "/assets/img/brokers/evest-en.svg";
 const EVEST_FEATURES = [
