@@ -3,53 +3,21 @@ import { LpContainer } from "@/components/amwal-lp/container";
 import { GreenCta } from "@/components/amwal-lp/green-cta";
 
 /**
- * Free-text article below the broker list. The reference is Quill CMS output
- * (`div.free-content` + `ql-align-right` classes) styled by `brokers.css`:
- *
- *   div.free-content *                     { margin: 0; padding: revert }
- *   div.free-content h2                    { font-size: 24px }   // 36px via inherited 1.5
- *   div.free-content p, ol, ul, li         { font-size: 18px; line-height: 32px }
- *   div.free-content div.free_content_cta  { width: 100%; padding: 30px 30% }
- *   @media (max-width: 768px) { h2 18px · p/li 14/26 · cta padding 30px · .free-content pt 32px }
- *
- * Because every margin is zeroed, ALL vertical rhythm in the reference comes
- * from the CMS's empty `<p><br></p>` filler nodes — one blank line box (32px,
- * 26px below 768) between blocks, plus a leading empty `<h2>` (36px / 27px).
- * Those are reproduced here as real margins/one decorative spacer so the markup
- * stays clean and semantic while the measured box height matches exactly
- * (1216 content width → 1280×1118 @1440, 768×1068 @768, 375×1562 @375).
- *
- * Breakpoint note: the reference's mobile block is `max-width: 768px`
- * (INCLUSIVE), while Tailwind's `max-md:` is 767.98px. At exactly 768 the
- * reference already shows the small article type, so the overrides below use
- * the literal `[@media(max-width:768px)]` at-rule rather than `max-md:`.
+ * Educational article below the broker list — amwal's structure (three H2
+ * blocks, two numbered lists, two in-article CTAs at the reference's
+ * `padding: 30px 30%` rhythm), Mizan's theme: navy ink text, gold-underlined
+ * headings, dark-navy flat CTAs.
  */
 
-/** One blank CMS line box between blocks: 32px @≥768, 26px below. */
 const GAP = "mt-8 [@media(max-width:768px)]:mt-[26px]";
 
-/** 24/36 700 → 18/27 700 at ≤768. */
 const H2 =
-  "text-[24px] font-bold leading-9 [@media(max-width:768px)]:text-[18px] [@media(max-width:768px)]:leading-[27px]";
+  "text-[24px] font-bold leading-9 text-ink [@media(max-width:768px)]:text-[18px] [@media(max-width:768px)]:leading-[27px]";
 
-/** 18/32 400 → 14/26 400 at ≤768. */
 const BODY =
-  "text-[18px] leading-8 [@media(max-width:768px)]:text-[14px] [@media(max-width:768px)]:leading-[26px]";
+  "text-[18px] leading-8 text-ink/80 [@media(max-width:768px)]:text-[14px] [@media(max-width:768px)]:leading-[26px]";
 
-/**
- * Most runs are wrapped by the CMS in `<span style="color: rgb(0,0,0)">`, so they
- * paint PURE black — only the two blocks the editor typed unstyled ("اختيار وسيط
- * التداول" + its paragraph) inherit the page's `#212427`. Verified against the
- * reference pixels; keeping both is what makes the diff land.
- */
-const CMS_BLACK = "text-[#000000]";
-
-/**
- * Decimal `<ol>`, UA `padding-inline-start: 40px` restored by `padding: revert`.
- * The colour span sits *inside* each `<li>` in the source, so the `::marker`
- * digits keep the inherited `#212427` while the text goes black.
- */
-const LIST = `list-decimal ps-10 ${BODY} ${CMS_BLACK} marker:text-[#212427]`;
+const LIST = `list-decimal ps-10 ${BODY} marker:font-bold marker:text-brand`;
 
 const CTA_LABEL = `ابدا التداول مع ${lpBrokers[0].name}`;
 const CTA_HREF = lpBrokers[0].href;
@@ -68,14 +36,16 @@ const BENEFITS = [
   "فرص التعلم: توفر العديد من المنصات موارد تعليمية وحسابات تجريبية لممارسة الاستراتيجيات دون مخاطر.",
 ];
 
-/**
- * In-article CTA: full-width wrapper with `padding: 30px 30%` (30px flat below
- * 768) around the flat `#03A64A` button — 18/27 700 uppercase, 16/22 padding,
- * 15px gap, trailing chevron rotated 180° so it points inline-end in RTL.
- */
+/** Gold underline bar under each article heading — home-page section style. */
+function H2Bar() {
+  return <div className="mt-2 h-1 w-14 rounded-full bg-brand-gradient" />;
+}
+
 function ArticleCta() {
   return (
-    <div className={`w-full px-[30%] py-[30px] [@media(max-width:768px)]:px-[30px] ${GAP}`}>
+    <div
+      className={`w-full px-[30%] py-[30px] [@media(max-width:768px)]:px-[30px] ${GAP}`}
+    >
       <GreenCta
         flat
         href={CTA_HREF}
@@ -105,18 +75,16 @@ function ArticleCta() {
 
 export default function ArticleContent() {
   return (
-    <section className="text-[#212427]">
-      <LpContainer className="[@media(max-width:768px)]:pt-8">
-        {/* Leading empty CMS heading — one h2 line box of pure whitespace. */}
-        <div aria-hidden="true" className="h-9 [@media(max-width:768px)]:h-[27px]" />
+    <section>
+      <LpContainer className="pt-10 [@media(max-width:768px)]:pt-8">
+        <h2 className={H2}>ما هو التداول عبر الإنترنت؟</h2>
+        <H2Bar />
 
-        <h2 className={`${H2} ${CMS_BLACK}`}>ما هو التداول عبر الإنترنت؟</h2>
-
-        <p className={`${BODY} ${CMS_BLACK} ${GAP}`}>
+        <p className={`${BODY} ${GAP}`}>
           التداول عبر الإنترنت هو عملية شراء وبيع الأصول من خلال المنصات الإلكترونية، بهدف
           الاستفادة من تغيرات الأسعار في الأسواق العالمية.{" "}
         </p>
-        <p className={`${BODY} ${CMS_BLACK}`}>
+        <p className={BODY}>
           يمكن للمتداولين الاستثمار في مجموعة متنوعة من الأسواق، بما في ذلك:
         </p>
 
@@ -126,14 +94,15 @@ export default function ArticleContent() {
           ))}
         </ol>
 
-        <p className={`${BODY} ${CMS_BLACK} ${GAP}`}>
+        <p className={`${BODY} ${GAP}`}>
           تتيح هذه التنوعات للمتداولين الوصول إلى عدة أسواق، وتنويع محافظهم الاستثمارية، وتطبيق
           استراتيجيات مختلفة بناءً على ظروف السوق.
         </p>
 
         <ArticleCta />
 
-        <h2 className={`${H2} ${CMS_BLACK} ${GAP}`}>فوائد التداول عبر الإنترنت</h2>
+        <h2 className={`${H2} ${GAP}`}>فوائد التداول عبر الإنترنت</h2>
+        <H2Bar />
 
         <ol className={`${LIST} ${GAP}`}>
           {BENEFITS.map((item) => (
@@ -142,6 +111,7 @@ export default function ArticleContent() {
         </ol>
 
         <h2 className={`${H2} ${GAP}`}>اختيار وسيط التداول</h2>
+        <H2Bar />
 
         <p className={`${BODY} ${GAP}`}>
           جميع وسطاء التداول لدينا موثوقون ويمكنك اختيار أي منهم للبدء بسهولة في التداول. كل

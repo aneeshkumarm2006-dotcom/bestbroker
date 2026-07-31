@@ -1,13 +1,6 @@
 import { LpContainer } from "@/components/amwal-lp/container";
 
-/**
- * The reference ships a 4:3 raster (`flagcdn.com/24x18/ae.png`) drawn into a
- * 20×15 box, i.e. the 2:1 UAE flag squashed vertically. The project's own
- * `/assets/img/flags/ae.svg` has a 12×6 viewBox, so an `<img>` would letterbox
- * it to 20×10 inside that box; `preserveAspectRatio="none"` is what forces the
- * same fill the reference has, and it can only be set on an inline SVG. The
- * geometry below is a verbatim copy of the asset's four paths.
- */
+/** UAE flag drawn inline so it can fill the 20×15 box like the reference. */
 function UaeFlag() {
   return (
     <svg
@@ -15,7 +8,7 @@ function UaeFlag() {
       preserveAspectRatio="none"
       role="img"
       aria-label="الإمارات العربية المتحدة"
-      className="h-[15px] w-5 shrink-0"
+      className="h-[15px] w-5 shrink-0 rounded-[2px]"
     >
       <path fill="#00843d" d="M0 0h12v6H0z" />
       <path fill="#fff" d="M0 2h12v4H0z" />
@@ -26,28 +19,19 @@ function UaeFlag() {
 }
 
 /**
- * Full-bleed `#EFEFEF` band under the page title: a 20×15 UAE flag on each side
- * of the country line, centred below `md` and start-aligned (right in RTL) from
- * `md` up. `py-2` around the 24px line box is what makes the band exactly 40px.
+ * Full-bleed country strip under the title — amwal's layout (flag + line,
+ * centered below `md`, start-aligned from `md` up), Mizan's theme: white band
+ * with warm divider rules instead of the reference's flat grey.
  *
- * Spacing note: the reference's inner row also carries `md:mt-6 mb-4`. Those
- * margins collapse out of the band (they are the 24px/16px gaps to the title
- * above and the broker list below), so they belong to page assembly, not here —
- * keeping them would make the isolated preview 80px tall instead of 40px.
+ * Spacing note: the outer gaps (24px above at md+, 16px below) live in the
+ * page assembly, not here.
  */
 export default function CountryBand() {
   return (
-    <div className="w-full bg-[#EFEFEF]">
+    <div className="w-full border-y border-divider bg-white">
       <LpContainer className="flex items-center justify-center gap-2 py-2 md:justify-start">
         <UaeFlag />
-        {/* The reference stack is `"Open Sans", sans-serif`, and Open Sans has
-            no Arabic subset, so this line renders in the OS generic sans-serif
-            (Segoe UI here) at 178.8px. The shell's `next/font` stack inserts an
-            Arial-based adjusted fallback ahead of `sans-serif`, which swallows
-            the Arabic and shrinks the line to 148px — pinning the generic
-            family back restores the reference metrics. Remove this once
-            `LpShell` opts out with `adjustFontFallback: false`. */}
-        <p className="text-center [font-family:sans-serif]">
+        <p className="text-center text-sm font-semibold text-ink">
           افضل الوسطاء في الامارات
         </p>
         <UaeFlag />

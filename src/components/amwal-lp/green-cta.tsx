@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
 
 /**
- * The reference's green CTA. Two variants exist on the page:
- * - broker-card "زيارة الموقع": green GRADIENT (180deg #28A745→#149532), 14/20 700
- * - in-article CTA: FLAT #03A64A, 18/27 700 uppercase
- * Both: white label, 4px radius, hover shadow 0 4px 8px rgba(0,0,0,.2).
+ * Conversion CTA for the /mizan-uae-ar landing page, in Mizan's brand system
+ * (file keeps its historical name from the clone pass; the styling is now
+ * Mizan's, not the reference's green):
+ * - default: gold `brand-gradient` — same as the home page's "زيارة الموقع"
+ * - `flat`: dark-navy ink — the secondary CTA style used in the article
+ * Both: white label, `rounded-cta`, control shadow, lift + glow on hover.
  */
 export function GreenCta({
   flat = false,
@@ -17,10 +19,10 @@ export function GreenCta({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "flex items-center justify-center rounded font-bold text-white transition-shadow hover:shadow-[0_4px_8px_rgba(0,0,0,0.2)]",
+        "flex items-center justify-center rounded-cta font-bold text-white shadow-control transition-all hover:-translate-y-0.5",
         flat
-          ? "bg-[#03A64A] text-[18px] uppercase leading-[27px]"
-          : "bg-[linear-gradient(180deg,#28A745_0%,#149532_100%)] text-[14px] leading-5",
+          ? "bg-ink text-[18px] leading-[27px] hover:bg-navy-deep"
+          : "bg-brand-gradient text-[14px] leading-5 hover:shadow-glow",
         className
       )}
       {...props}
