@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
+
 /**
  * Left-hand trust column of /mizan-uae-ar (RTL: sits left of the broker list).
  * Amwal's structure — illustration, "local expertise" card, "why us" card with
@@ -48,6 +52,7 @@ const BENEFITS: Benefit[] = [
 ];
 
 export default function TrustSidebar() {
+  const { t } = useLanguage();
   return (
     <div className="flex flex-col">
       <div className="me-4 w-3/4">
@@ -68,12 +73,13 @@ export default function TrustSidebar() {
             id="trust-sidebar-expertise"
             className="text-[22px] font-bold leading-[33px] text-ink"
           >
-            خبرتنا <span className="text-gradient">المحلية في</span> الأسواق
-            المالية
+            {t("خبرتنا")} <span className="text-gradient">{t("المحلية في")}</span>{" "}
+            {t("الأسواق المالية")}
           </h2>
           <p className="pt-4 text-base leading-6 text-muted">
-            يقدم لك خبراؤنا المحليون أفضل الخيارات المالية لمساعدتك في اتخاذ
-            قرارات ذكية
+            {t(
+              "يقدم لك خبراؤنا المحليون أفضل الخيارات المالية لمساعدتك في اتخاذ قرارات ذكية"
+            )}
           </p>
         </div>
       </section>
@@ -83,7 +89,7 @@ export default function TrustSidebar() {
         className="mt-2 flex flex-col rounded-card border border-divider bg-white p-6 shadow-card"
       >
         <h2 id="trust-sidebar-why" className="text-2xl font-bold leading-8 text-ink">
-          لماذا <span className="text-gradient">تستخدم ميزان</span>؟
+          {t("لماذا")} <span className="text-gradient">{t("تستخدم ميزان؟")}</span>
         </h2>
         <ul className="flex flex-col">
           {BENEFITS.map((benefit, index) => (
@@ -104,8 +110,8 @@ export default function TrustSidebar() {
                 className="box-content ps-2 pt-1"
               />
               <div className="flex flex-col">
-                <p className="font-bold text-ink">{benefit.title}</p>
-                <p className="text-muted">{benefit.body}</p>
+                <p className="font-bold text-ink">{t(benefit.title)}</p>
+                <p className="text-muted">{t(benefit.body)}</p>
               </div>
             </li>
           ))}

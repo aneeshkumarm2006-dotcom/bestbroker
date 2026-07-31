@@ -10,6 +10,8 @@ export interface LpBroker {
   rank: number;
   name: string;
   logo: string;
+  /** Optional English-language logo, used when the active language is "en". */
+  logoEn?: string;
   /** Score value shown gold at 32px, e.g. "10" renders as ‎10/10‎. */
   score: string;
   /** Bullet list, gold check.svg fronting each row. */
@@ -25,6 +27,7 @@ export const lpBrokers: LpBroker[] = [
     rank: 1,
     name: "Evest",
     logo: "/assets/img/brokers/evest.png",
+    logoEn: "/assets/img/brokers/evest-en.svg",
     score: "10",
     features: [
       "مرخّص من CySEC قبرص و FSA سيشل",

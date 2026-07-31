@@ -1,4 +1,7 @@
+"use client";
+
 import { LpContainer } from "@/components/amwal-lp/container";
+import { useLanguage } from "@/lib/i18n";
 
 /** UAE flag drawn inline so it can fill the 20×15 box like the reference. */
 function UaeFlag() {
@@ -27,12 +30,13 @@ function UaeFlag() {
  * page assembly, not here.
  */
 export default function CountryBand() {
+  const { t } = useLanguage();
   return (
     <div className="w-full border-y border-divider bg-white">
       <LpContainer className="flex items-center justify-center gap-2 py-2 md:justify-start">
         <UaeFlag />
         <p className="text-center text-sm font-semibold text-ink">
-          افضل الوسطاء في الامارات
+          {t("افضل الوسطاء في الامارات")}
         </p>
         <UaeFlag />
       </LpContainer>

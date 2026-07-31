@@ -42,6 +42,79 @@ const AR_TO_EN: Record<string, string> = {
   "خيارنا الأول للمتداولين في الإمارات": "Our top pick for traders in the UAE",
   "افتح حسابك الآن": "Open your account now",
 
+  // ── Campaign LP: header/date/title/country ──────────────────────────
+  "المعلومات الاستثمارية المقدمة في هذه الصفحة هي لأغراض تعليمية فقط.":
+    "The investment information provided on this page is for educational purposes only.",
+  "في الامارات وابدأ التداول في دقائق!":
+    "in the UAE and start trading in minutes!",
+  "افضل الوسطاء في الامارات": "The best brokers in the UAE",
+
+  // ── Campaign LP: broker cards ───────────────────────────────────────
+  "الوسيط الأكثر شعبية في الإمارات": "The most popular broker in the UAE",
+  "دعم عربي على مدار الساعة": "24/7 Arabic support",
+  "درجة ميزان": "Mizan Score",
+  "يعتمد تقييمنا على مؤشرات الأداء الرئيسية التالية:":
+    "Our rating is based on the following key performance indicators:",
+  "المكانة المرموقة": "Prominence",
+  "نقيس تفاعل المستخدمين من خلال مراقبة عدد النقرات التي تتلقاها كل علامة تجارية في آخر 7 أيام":
+    "We measure user engagement by monitoring the number of clicks each brand receives over the last 7 days",
+  "سمعة العلامة التجارية": "Brand reputation",
+  "بناءً على التقييمات التي تم جمعها من أشهر المنصات الإلكترونية":
+    "Based on ratings collected from the most popular online platforms",
+  "المزايا والفوائد": "Features and benefits",
+  "يقوم فريق التحرير في ميزان بتقييم ومراجعة المنتجات المالية مع مراعاة أهم العناصر الوظيفية للمنتج.":
+    "Mizan's editorial team evaluates and reviews financial products, considering the product's most important functional elements.",
+
+  // ── Campaign LP: trust sidebar ──────────────────────────────────────
+  "خبرتنا": "Our",
+  "المحلية في": "local expertise in",
+  "الأسواق المالية": "financial markets",
+  "يقدم لك خبراؤنا المحليون أفضل الخيارات المالية لمساعدتك في اتخاذ قرارات ذكية":
+    "Our local experts bring you the best financial options to help you make smart decisions",
+  "لماذا": "Why",
+  "تستخدم ميزان؟": "use Mizan?",
+  "أفضل الخيارات فقط": "Only the best options",
+  "نقارن ونختار لك أفضل العروض": "We compare and pick the best offers for you",
+  "وفر وقتك ومالك": "Save your time and money",
+  "اعثر على الحل الأنسب لك في ثوانٍ معدودة":
+    "Find the solution that suits you best in seconds",
+  "بيانات محدثة دائمًا": "Always up-to-date data",
+  "نتحقق من العروض والشروط باستمرار لنقدم لك معلومات موثوقة.":
+    "We continuously verify offers and terms to give you reliable information.",
+  "سهل وآمن": "Easy and safe",
+  "فلاتر سهلة الاستخدام وتقييمات مفصلة لمساعدتك على اتخاذ القرار بثقة.":
+    "Easy-to-use filters and detailed ratings to help you decide with confidence.",
+
+  // ── Campaign LP: article ────────────────────────────────────────────
+  "ما هو التداول عبر الإنترنت؟": "What is online trading?",
+  "التداول عبر الإنترنت هو عملية شراء وبيع الأصول من خلال المنصات الإلكترونية، بهدف الاستفادة من تغيرات الأسعار في الأسواق العالمية.":
+    "Online trading is the process of buying and selling assets through electronic platforms, aiming to benefit from price movements in global markets.",
+  "يمكن للمتداولين الاستثمار في مجموعة متنوعة من الأسواق، بما في ذلك:":
+    "Traders can invest in a variety of markets, including:",
+  "المعادن الثمينة: الذهب والفضة وغيرها من السلع القيمة.":
+    "Precious metals: gold, silver and other valuable commodities.",
+  "الموارد الطاقية: النفط والغاز الطبيعي وغيرها من السلع.":
+    "Energy resources: oil, natural gas and other commodities.",
+  "الأسهم: حصص في شركات عالمية رائدة مثل ابل امازون سامسونج.":
+    "Stocks: shares in leading global companies such as Apple, Amazon and Samsung.",
+  "تتيح هذه التنوعات للمتداولين الوصول إلى عدة أسواق، وتنويع محافظهم الاستثمارية، وتطبيق استراتيجيات مختلفة بناءً على ظروف السوق.":
+    "This variety lets traders access multiple markets, diversify their portfolios, and apply different strategies based on market conditions.",
+  "فوائد التداول عبر الإنترنت": "Benefits of online trading",
+  "الوصول إلى الأسواق العالمية: يمكنك التداول في مناطق مثل الولايات المتحدة وأوروبا وآسيا والخليج من خلال منصة واحدة.":
+    "Access to global markets: trade regions such as the US, Europe, Asia and the Gulf from a single platform.",
+  "تنوع الأسواق: من المعادن والسلع إلى أسهم الشركات الكبرى، يمكنك اختيار المجالات التي تناسب أهدافك.":
+    "Market variety: from metals and commodities to blue-chip stocks, choose the areas that fit your goals.",
+  "المرونة والتحكم: التداول في أي وقت، مع القدرة على ضبط حجم المخاطرة لكل صفقة وفقًا لأهدافك.":
+    "Flexibility and control: trade at any time, with the ability to size the risk of every position to your goals.",
+  "أدوات تحليل متقدمة: استخدام الرسوم البيانية الحية والمؤشرات التقنية وبيانات السوق الفورية لاتخاذ قرارات مستنيرة.":
+    "Advanced analysis tools: use live charts, technical indicators and real-time market data to make informed decisions.",
+  "فرص التعلم: توفر العديد من المنصات موارد تعليمية وحسابات تجريبية لممارسة الاستراتيجيات دون مخاطر.":
+    "Learning opportunities: many platforms offer educational resources and demo accounts to practice strategies risk-free.",
+  "اختيار وسيط التداول": "Choosing a trading broker",
+  "جميع وسطاء التداول لدينا موثوقون ويمكنك اختيار أي منهم للبدء بسهولة في التداول. كل وسيط يوفر منصة تداول مستقرة وأدوات تحليل متقدمة لدعم قراراتك، مع مستويات أمان عالية وطرق دفع مرنة لتسهيل الإيداع والسحب. قبل البدء، يمكنك تجربة الحساب التجريبي لتتعرف على المنصة وتختبر استراتيجياتك بدون مخاطر، ومع دعم العملاء المتوفر دائمًا، ستتمكن من إدارة استثماراتك بثقة وراحة.":
+    "All of our trading brokers are trusted and you can pick any of them to start trading with ease. Every broker offers a stable trading platform and advanced analysis tools to support your decisions, with high security levels and flexible payment methods for easy deposits and withdrawals. Before you start, you can try the demo account to get to know the platform and test your strategies risk-free — and with customer support always available, you'll manage your investments with confidence.",
+  "ابدا التداول مع": "Start trading with",
+
   // ── Stats band ──────────────────────────────────────────────────────
   "مستخدم": "Users",
   "وسيط مُقيَّم": "Brokers rated",

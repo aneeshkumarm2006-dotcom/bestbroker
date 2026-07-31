@@ -1,8 +1,11 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 import { Fragment } from "react";
 
 import { lpBrokers, type LpBroker } from "@/components/amwal-lp/brokers";
 import { GreenCta } from "@/components/amwal-lp/green-cta";
+import { useLanguage } from "@/lib/i18n";
 
 /**
  * `broker-list` — the conversion core of /mizan-uae-ar.
@@ -55,6 +58,7 @@ function FeatureCheck() {
 
 /** ⓘ + dark-navy hover tooltip explaining the score. */
 function RatingBlock() {
+  const { t } = useLanguage();
   return (
     <div className="group/rating relative cursor-default">
       <div className="flex items-center gap-[5px] pb-1.5">
@@ -72,11 +76,11 @@ function RatingBlock() {
           <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
         </svg>
       </div>
-      <div className="absolute left-0 top-8 z-[9] hidden w-[340px] rounded-control bg-ink px-[18px] py-[22px] text-start shadow-card group-hover/rating:block max-md:left-auto max-md:right-[-200px]">
+      <div className="absolute start-0 top-8 z-[9] hidden w-[340px] rounded-control bg-ink px-[18px] py-[22px] text-start shadow-card group-hover/rating:block max-md:start-auto max-md:end-[-200px]">
         <div className="flex flex-col text-sm text-white/80">
           <div className="pb-2.5">
-            <p className="font-bold text-brand-light">{RATING_TOOLTIP.heading}</p>
-            <p>{RATING_TOOLTIP.intro}</p>
+            <p className="font-bold text-brand-light">{t(RATING_TOOLTIP.heading)}</p>
+            <p>{t(RATING_TOOLTIP.intro)}</p>
           </div>
           {RATING_TOOLTIP.rows.map((row, i) => (
             <div
@@ -87,8 +91,8 @@ function RatingBlock() {
                   : "border-b border-white/15 py-2.5"
               }
             >
-              <p className="font-bold text-white">{row.title}</p>
-              <p>{row.body}</p>
+              <p className="font-bold text-white">{t(row.title)}</p>
+              <p>{t(row.body)}</p>
             </div>
           ))}
         </div>
@@ -98,6 +102,7 @@ function RatingBlock() {
 }
 
 function BrokerCard({ broker }: { broker: LpBroker }) {
+  const { t, lang } = useLanguage();
   return (
     // `leading-[1.5]` keeps the unitless line-height ratio the score spans
     // (22/32px) depend on, instead of the shell's absolute 24px.
@@ -111,12 +116,12 @@ function BrokerCard({ broker }: { broker: LpBroker }) {
       {broker.highlighted && broker.ribbon ? (
         <div className="flex flex-row items-center justify-center gap-2 rounded-t-card bg-brand-gradient py-2.5 text-center text-white">
           <p>🏆</p>
-          <p className="text-xs font-extrabold md:text-sm">{broker.ribbon}</p>
+          <p className="text-xs font-extrabold md:text-sm">{t(broker.ribbon)}</p>
           <p>🏆</p>
         </div>
       ) : null}
 
-      <span className="absolute top-1/2 z-[3] flex h-7 w-7 translate-x-1/2 items-center justify-center rounded-full bg-brand-gradient text-sm font-bold text-white shadow-control md:h-8 md:w-8 md:text-xl">
+      <span className="absolute start-0 top-1/2 z-[3] flex h-7 w-7 -translate-x-1/2 items-center justify-center rounded-full bg-brand-gradient text-sm font-bold text-white shadow-control rtl:translate-x-1/2 md:h-8 md:w-8 md:text-xl">
         {broker.rank}
       </span>
 
@@ -124,17 +129,19 @@ function BrokerCard({ broker }: { broker: LpBroker }) {
       <div className="flex items-center justify-between border-b border-divider pb-2 pe-8 ps-8 md:py-4 md:pe-24 md:ps-12">
         <img
           className="w-[120px] md:w-40"
-          src={broker.logo}
-          alt={`شعار ${broker.name}`}
+          src={lang === "en" && broker.logoEn ? broker.logoEn : broker.logo}
+          alt={broker.name}
         />
         <div className="text-[22px] font-bold">
           <div className="flex flex-row items-center gap-2">
             <div className="block md:flex md:items-center md:gap-2.5">
               <RatingBlock />
             </div>
-            <span className="flex flex-row items-baseline">
-              <span className="text-[22px] text-ink">10/</span>
+            {/* dir="ltr" pins the visual order to score-then-"/10" in both
+                languages (the reference relied on RTL bidi to get this). */}
+            <span dir="ltr" className="flex flex-row items-baseline">
               <span className="text-[32px] text-brand">{broker.score}</span>
+              <span className="text-[22px] text-ink">/10</span>
             </span>
           </div>
         </div>
@@ -148,7 +155,7 @@ function BrokerCard({ broker }: { broker: LpBroker }) {
             {broker.features.map((feature) => (
               <li key={feature} className="flex w-full items-start gap-2 py-1">
                 <FeatureCheck />
-                <span className="font-semibold text-ink/80">{feature}</span>
+                <span className="font-semibold text-ink/80">{t(feature)}</span>
               </li>
             ))}
           </ul>
@@ -156,18 +163,18 @@ function BrokerCard({ broker }: { broker: LpBroker }) {
         <div className="flex flex-col items-stretch justify-center text-center text-sm md:items-center md:text-start">
           <GreenCta
             href={broker.href}
-            className="-mx-4 my-0 px-20 py-4 md:mx-0 md:my-4"
+            className="-mx-4 my-0 whitespace-nowrap px-20 py-4 md:mx-0 md:my-4"
           >
-            زيارة الموقع
+            {t("زيارة الموقع")}
           </GreenCta>
           <p className="hidden w-[200px] text-center text-xs text-muted md:block">
-            التداول يحمل مخاطر
+            {t("التداول يحمل مخاطر")}
           </p>
         </div>
       </div>
 
       <div className="flex flex-row-reverse items-center justify-center px-5 text-[10px] text-muted md:flex-row md:px-0 md:text-sm">
-        <span className="py-4 md:hidden">التداول يحمل مخاطر</span>
+        <span className="py-4 md:hidden">{t("التداول يحمل مخاطر")}</span>
       </div>
     </div>
   );

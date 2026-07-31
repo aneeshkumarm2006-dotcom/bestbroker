@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
 import { Header } from "@/components/sections/header";
+import { Footer } from "@/components/sections/footer";
+import { DisclaimerBand } from "@/components/sections/disclaimer-band";
 import { LpShell } from "@/components/amwal-lp/shell";
 import { LpContainer } from "@/components/amwal-lp/container";
 import {
@@ -11,7 +13,6 @@ import {
   BrokerList,
   TrustSidebar,
   ArticleContent,
-  Footer,
 } from "@/components/amwal-lp/sections";
 
 export const metadata: Metadata = {
@@ -59,6 +60,9 @@ export default function Page() {
           </div>
         </LpContainer>
         <ArticleContent />
+        {/* Same closer as the home page: risk-warning band (owns the
+            #disclaimer anchor) + the shared site footer. */}
+        <DisclaimerBand />
       </main>
       <Footer />
     </LpShell>
