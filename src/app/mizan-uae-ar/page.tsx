@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
+import { Header } from "@/components/sections/header";
 import { LpShell } from "@/components/amwal-lp/shell";
 import { LpContainer } from "@/components/amwal-lp/container";
 import {
   TickerTape,
-  HeaderBar,
   LastUpdatedBand,
   PageTitle,
   CountryBand,
@@ -38,16 +38,17 @@ export default function Page() {
   return (
     <LpShell>
       <TickerTape />
-      <header>
-        <HeaderBar />
-        <LastUpdatedBand />
-      </header>
+      {/* Same navbar as the main site — its anchors resolve to this page's own
+          sections (#brokers → the card row, #about → the article, #disclaimer
+          → the footer). */}
+      <Header />
+      <LastUpdatedBand />
       <main>
         <PageTitle />
         <div className="mb-4 md:mt-6">
           <CountryBand />
         </div>
-        <LpContainer>
+        <LpContainer id="brokers" className="scroll-mt-24">
           <div className="flex gap-6">
             <div className="basis-full md:basis-3/4">
               <BrokerList />

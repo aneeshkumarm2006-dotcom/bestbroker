@@ -46,7 +46,7 @@ function Copyright({ className }: { className?: string }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-gradient pb-20 pt-[60px] text-white/60">
+    <footer id="disclaimer" className="bg-navy-gradient pb-20 pt-[60px] text-white/60">
       <LpContainer>
         <div className="flex flex-col gap-5 md:flex-row md:gap-20">
           {/* Brand column — right-hand side under RTL */}

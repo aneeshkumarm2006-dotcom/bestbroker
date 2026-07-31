@@ -75,7 +75,7 @@ function ArticleCta() {
 
 export default function ArticleContent() {
   return (
-    <section>
+    <section id="about" className="scroll-mt-24">
       <LpContainer className="pt-10 [@media(max-width:768px)]:pt-8">
         <h2 className={H2}>ما هو التداول عبر الإنترنت؟</h2>
         <H2Bar />

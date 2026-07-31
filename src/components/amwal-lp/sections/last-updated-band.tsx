@@ -39,12 +39,16 @@ export default function LastUpdatedBand() {
 
   return (
     <div className="border-b border-t border-divider bg-white/60">
-      <LpContainer className="flex justify-center py-2 text-xs md:justify-start">
+      <LpContainer className="flex items-center justify-center py-2 text-xs md:justify-between">
         <p className="text-sm leading-5">
           آخر تحديث{" "}
           <span className="font-bold text-brand" suppressHydrationWarning>
             {updatedAt}
           </span>
+        </p>
+        {/* Compliance line inherited from the reference's header bar. */}
+        <p className="hidden text-muted md:block">
+          المعلومات الاستثمارية المقدمة في هذه الصفحة هي لأغراض تعليمية فقط.
         </p>
       </LpContainer>
     </div>
