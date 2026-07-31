@@ -28,6 +28,20 @@ const AR_TO_EN: Record<string, string> = {
   "الإمارات العربية المتحدة": "United Arab Emirates",
   "محدّث 2026": "Updated 2026",
 
+  // ── Campaign landing page (/mizan-uae-ar) ───────────────────────────
+  "آخر تحديث": "Last updated",
+  "اختر": "Choose",
+  "أفضل وسيط تداول": "the best trading broker",
+  "في الإمارات وابدأ التداول خلال دقائق":
+    "in the UAE and start trading in minutes",
+  "قارنّا لك أفضل الوسطاء المرخّصين المتاحين للمتداولين في الإمارات — كل ما عليك هو الاختيار والبدء.":
+    "We've compared the top licensed brokers available to traders in the UAE — all you have to do is choose and get started.",
+  "عرض أفضل الوسطاء": "See the top brokers",
+  "حسابات إسلامية متوفرة": "Islamic accounts available",
+  "جاهز للبدء؟": "Ready to start?",
+  "خيارنا الأول للمتداولين في الإمارات": "Our top pick for traders in the UAE",
+  "افتح حسابك الآن": "Open your account now",
+
   // ── Stats band ──────────────────────────────────────────────────────
   "مستخدم": "Users",
   "وسيط مُقيَّم": "Brokers rated",
