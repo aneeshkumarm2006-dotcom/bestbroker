@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
-import { LanguageToggle } from "@/components/language-toggle";
 
 // Single-page site: every nav target is an anchor on this page.
 const NAV_LINKS = [
@@ -95,11 +94,6 @@ export function Header() {
             >
               {t("قارن الآن")}
             </a>
-
-            {/* Language toggle */}
-            <div className="mt-3 sm:mt-0 lg:mt-0">
-              <LanguageToggle />
-            </div>
           </div>
         </nav>
       </div>
