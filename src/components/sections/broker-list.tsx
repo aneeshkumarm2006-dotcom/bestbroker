@@ -1,7 +1,7 @@
 "use client";
 
 import { PageContainer } from "@/components/ui/container";
-import { cn } from "@/lib/utils";
+import { cn, evestRedirectClass } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
 
 export interface BrokerFlag {
@@ -215,7 +215,10 @@ export function BrokerList({
                       href={b.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 rounded-cta bg-brand-gradient px-5 py-3.5 font-bold text-white shadow-control transition-all hover:-translate-y-0.5 hover:shadow-glow"
+                      className={cn(
+                        "flex items-center justify-center gap-2 rounded-cta bg-brand-gradient px-5 py-3.5 font-bold text-white shadow-control transition-all hover:-translate-y-0.5 hover:shadow-glow",
+                        evestRedirectClass(b.href)
+                      )}
                     >
                       {t("زيارة الموقع")}
                       <svg
