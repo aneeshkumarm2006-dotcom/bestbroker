@@ -1,30 +1,68 @@
+import type { Metadata } from "next";
+
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 import { DisclaimerBand } from "@/components/sections/disclaimer-band";
-import { HomeHero } from "@/components/sections/home-hero";
-import { HomeStats } from "@/components/sections/home-stats";
-import { HomeCompare } from "@/components/sections/home-compare";
-import { BrokerList } from "@/components/sections/broker-list";
-import { HomeAbout } from "@/components/sections/home-about";
+import { LpShell } from "@/components/amwal-lp/shell";
+import { LpContainer } from "@/components/amwal-lp/container";
+import {
+  TickerTape,
+  LastUpdatedBand,
+  PageTitle,
+  CountryBand,
+  BrokerList,
+  TrustSidebar,
+  ArticleContent,
+} from "@/components/amwal-lp/sections";
+
+export const metadata: Metadata = {
+  title: "أفضل وسطاء التداول في الإمارات 2026 | ميزان",
+  description:
+    "قائمة محدّثة بأفضل وسطاء التداول المرخّصين في الإمارات — قارن واختر وابدأ التداول خلال دقائق.",
+};
 
 /**
- * The whole site is this one page: Mizan, UAE only. Pitch, proof, the ranked
- * UAE broker list and the risk disclosure live in a single scroll, and the nav
- * points at in-page anchors instead of routes.
+ * The whole site is this single page — the former /mizan-uae-ar Google Ads
+ * landing page (a rebranded clone of the amwal reference, see
+ * CLONE_PLAN_AMWAL.md) promoted to `/`. /mizan-uae-ar 301s here via
+ * next.config.mjs so live ad links keep working. Section order and geometry
+ * mirror the reference exactly; the broker cards are the second content block,
+ * straight after the title. Spacing notes:
+ * - country-band wrapper carries `md:mt-6 mb-4` — on the reference these
+ *   margins collapse between page-title / band / broker row (24px above at
+ *   md+, 16px below at all widths).
+ * - broker-list + trust-sidebar share one `flex gap-6` container row
+ *   (basis-3/4 / basis-1/4); the sidebar only renders at md+.
  */
 export default function Page() {
   return (
-    <>
+    <LpShell>
+      <TickerTape />
+      {/* Navbar anchors resolve to this page's own sections (#brokers → the
+          card row, #about → the article, #disclaimer → the footer). */}
       <Header />
+      <LastUpdatedBand />
       <main>
-        <HomeHero />
-        <HomeStats />
-        <HomeCompare />
-        <BrokerList />
-        <HomeAbout />
+        <PageTitle />
+        <div className="mb-4 md:mt-6">
+          <CountryBand />
+        </div>
+        <LpContainer id="brokers" className="scroll-mt-24">
+          <div className="flex gap-6">
+            <div className="basis-full md:basis-3/4">
+              <BrokerList />
+            </div>
+            <div className="hidden basis-1/4 flex-col pb-4 md:flex">
+              <TrustSidebar />
+            </div>
+          </div>
+        </LpContainer>
+        <ArticleContent />
+        {/* Risk-warning band (owns the #disclaimer anchor) + the shared site
+            footer close the page. */}
         <DisclaimerBand />
       </main>
       <Footer />
-    </>
+    </LpShell>
   );
 }

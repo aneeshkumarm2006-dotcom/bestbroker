@@ -19,6 +19,8 @@ export default function PreviewPage({
 }: {
   params: { section: string };
 }) {
+  // The live site is a single page — previews only exist in local dev.
+  if (process.env.NODE_ENV === "production") notFound();
   const Section = lpSections[params.section];
   if (!Section) notFound();
   return (
