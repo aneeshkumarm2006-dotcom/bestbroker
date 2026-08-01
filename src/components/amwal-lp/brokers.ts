@@ -51,6 +51,6 @@ export const lpBrokers: LpBroker[] = [
       "دعم مباشر محلي وحسابات تجريبية",
       "تركيز على التعليم باللغة العربية",
     ],
-    href: "https://afaq.trade/",
+    href: "https://campaign.afaqpartners.trade/Tracking/click/?affid=60034&campaign=1029&product_id=1&t_type=Register",
   },
 ];
