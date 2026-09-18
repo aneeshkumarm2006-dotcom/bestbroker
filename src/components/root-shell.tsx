@@ -5,7 +5,7 @@ import { LANG_DIR, type Lang } from "@/lib/lang";
 
 // Mizan renders site-wide in Cairo, which ships both Arabic and Latin glyphs —
 // a deliberate brand typeface (the former theme fell back to the system font).
-// The English mirror keeps it, so /en is the same page in the same voice.
+// The English edition keeps it, so /en is the same page in the same voice.
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -16,8 +16,9 @@ const cairo = Cairo({
 const GTM_ID = "GTM-K2GRK6KD";
 
 /**
- * The document shell shared by both root layouts. `/` (Arabic) and `/en`
- * (English) live in separate route groups so each can own its own `<html>`
+ * The document shell shared by both root layouts. `/` (Arabic, UAE) and
+ * `/en` (English, South Africa) live in separate route groups so each can own
+ * its own `<html>`
  * element — that is the only way the server HTML can carry the right
  * `lang`/`dir` per language. Everything else about the two documents is
  * identical, so it lives here instead of being copy-pasted.

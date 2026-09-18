@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "ميزان — وازِن بين أفضل وسطاء التداول المرخّصين في الإمارات. مقارنة مستقلة ومحايدة تساعدك على اختيار الوسيط الأنسب لك.",
   alternates: {
     canonical: "/",
-    languages: { ar: "/", en: "/en", "x-default": "/" },
+    languages: { "ar-AE": "/", "en-ZA": "/en", "x-default": "/" },
   },
 };
 

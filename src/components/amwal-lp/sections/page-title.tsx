@@ -6,7 +6,8 @@ import { useLanguage } from "@/lib/i18n";
 /**
  * Page title block — amwal's placement and scale (40px desktop start-aligned,
  * 26px centered mobile), Mizan's voice: dark-navy ink with the key phrase in
- * the brand's gold gradient. Translates with the site language toggle.
+ * the brand's gold gradient. The country in the headline follows the route's
+ * market (UAE on `/`, South Africa on `/en`) through the dictionary.
  */
 export default function PageTitle() {
   const { t } = useLanguage();

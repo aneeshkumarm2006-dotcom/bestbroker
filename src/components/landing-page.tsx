@@ -19,10 +19,11 @@ import {
  * CLONE_PLAN_AMWAL.md) promoted to `/`. /mizan-uae-ar 301s there via
  * next.config.mjs so live ad links keep working.
  *
- * Both language routes render THIS component, so `/en` is the same markup as
- * `/` with the copy translated and the direction flipped — section order and
- * geometry mirror the reference exactly in either language, and the sections
- * use logical properties throughout so nothing has to be laid out twice. The
+ * Both routes render THIS component, so `/en` (the English South Africa
+ * edition) is the same markup as `/` (Arabic, UAE) with the copy translated,
+ * the market swapped and the direction flipped — section order and geometry
+ * mirror the reference exactly in either language, and the sections use
+ * logical properties throughout so nothing has to be laid out twice. The
  * broker cards are the second content block, straight after the title.
  * Spacing notes:
  * - country-band wrapper carries `md:mt-6 mb-4` — on the reference these

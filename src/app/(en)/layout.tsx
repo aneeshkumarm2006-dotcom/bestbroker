@@ -5,18 +5,23 @@ import "flag-icons/css/flag-icons.min.css";
 import { RootShell } from "@/components/root-shell";
 
 /**
- * Root layout for the English mirror (`/en`). Twin of src/app/(ar)/layout.tsx
- * — same document, same theme, same fonts; only `lang`/`dir` and the metadata
- * differ. See <RootShell> for everything the two share.
+ * Root layout for the English edition (`/en`), which serves SOUTH AFRICA —
+ * `/` is the Arabic UAE edition. Twin of src/app/(ar)/layout.tsx: same
+ * document, same theme, same fonts; only `lang`/`dir`, the market and the
+ * metadata differ. See <RootShell> for everything the two share.
+ *
+ * The two editions are region alternates of each other (hreflang below) but
+ * nothing on the page links one to the other — a reader arrives on the
+ * edition for their own market and stays there.
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mizanone.com"),
-  title: "Mizan | Best Trading Brokers in the UAE 2026",
+  title: "Mizan | Best Trading Brokers in South Africa 2026",
   description:
-    "Mizan — weigh up the best licensed trading brokers in the UAE. An independent, impartial comparison to help you pick the broker that suits you.",
+    "Mizan — weigh up the best licensed trading brokers in South Africa. An independent, impartial comparison to help you pick the broker that suits you.",
   alternates: {
     canonical: "/en",
-    languages: { ar: "/", en: "/en", "x-default": "/" },
+    languages: { "ar-AE": "/", "en-ZA": "/en", "x-default": "/" },
   },
 };
 

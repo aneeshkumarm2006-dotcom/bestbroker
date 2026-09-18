@@ -8,11 +8,11 @@ export const metadata: Metadata = {
     "قائمة محدّثة بأفضل وسطاء التداول المرخّصين في الإمارات — قارن واختر وابدأ التداول خلال دقائق.",
   alternates: {
     canonical: "/",
-    languages: { ar: "/", en: "/en", "x-default": "/" },
+    languages: { "ar-AE": "/", "en-ZA": "/en", "x-default": "/" },
   },
 };
 
-/** The Arabic original. Its English mirror is src/app/(en)/en/page.tsx. */
+/** The Arabic UAE edition. South Africa is src/app/(en)/en/page.tsx. */
 export default function Page() {
   return <LandingPage />;
 }

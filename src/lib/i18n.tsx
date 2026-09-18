@@ -20,11 +20,12 @@ const LanguageContext = React.createContext<LanguageContextValue | null>(null);
 
 /**
  * Language is a property of the ROUTE, not of client state: `/` renders the
- * Arabic original and `/en` renders the English mirror, each under its own
- * root layout so `<html lang>` / `<html dir>` are correct in the server HTML.
- * The provider therefore just carries the route's language down to the
- * ~20 components that call `useLanguage()`; there is nothing to toggle here
- * (the header's switch is a plain link to the other route).
+ * Arabic UAE edition and `/en` the English South Africa edition, each under
+ * its own root layout so `<html lang>` / `<html dir>` are correct in the
+ * server HTML. The provider therefore just carries the route's language down
+ * to the ~20 components that call `useLanguage()`. There is nothing to
+ * toggle — the site has no language switch, because the two routes are two
+ * markets and a reader belongs to one of them.
  */
 export function LanguageProvider({
   lang,

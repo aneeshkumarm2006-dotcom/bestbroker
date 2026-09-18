@@ -26,8 +26,8 @@ const TICKER_TAPE_SRC =
  * Full-bleed TradingView ticker-tape strip that opens the page (46px tall,
  * decorative / non-interactive). The official embed script is injected
  * client-side and idle-deferred; the wrapper reserves `min-height: 46px` so
- * nothing below shifts while the iframe loads. When the language toggles, the
- * widget is torn down and re-injected with the matching locale.
+ * nothing below shifts while the iframe loads. Each route mounts it once with
+ * its own locale (`ar_AE` on `/`, `en` on `/en`).
  */
 export default function TickerTape() {
   const widgetRef = useRef<HTMLDivElement>(null);

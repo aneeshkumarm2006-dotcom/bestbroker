@@ -1,6 +1,6 @@
 /**
- * Guards the /en mirror: every Arabic string that the landing page can render
- * must have an English translation in src/lib/dictionary.ts.
+ * Guards the /en edition: every Arabic string that the landing page can
+ * render must have an English value in src/lib/dictionary.ts.
  *
  *   node scripts/check-dictionary.mjs
  *
@@ -25,9 +25,6 @@ const ENTRY = join(SRC, "components", "landing-page.tsx");
 const ALLOWED = new Set([
   // Logo alt / aria-label: the components already pick "Mizan" for English.
   "ميزان",
-  // aria-label on the switch back to Arabic, written in Arabic by design.
-  "التبديل إلى العربية",
-  "العربية",
 ]);
 
 /** Dictionary keys, read out of the source (plain node can't import .ts). */

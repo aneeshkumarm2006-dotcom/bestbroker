@@ -1,11 +1,18 @@
 /**
- * Arabic to English dictionary for the site's /en mirror.
+ * Arabic (UAE) to English (South Africa) dictionary for the site's /en
+ * edition.
  *
  * The page's source language is Arabic: every component renders its copy
  * through t("<arabic>"), so the keys here are the Arabic source strings
  * exactly as they appear in the components. A missing key falls through to
  * the Arabic source (and warns in dev) rather than rendering an empty node —
  * scripts/check-dictionary.mjs sweeps the tree for unmapped strings.
+ *
+ * The two routes are two MARKETS: `/` sells the UAE, `/en` sells South
+ * Africa. Most entries below are straight translations, but the handful that
+ * name a country, a region or a language are market equivalents rather than
+ * literal ones — the English of "في الامارات" is "in South Africa" here, by
+ * design. Each is marked `market:` where it appears.
  */
 export const EN_DICTIONARY: Record<string, string> = {
   // ── header / footer navigation ──────────────────────────────────────────
@@ -22,15 +29,19 @@ export const EN_DICTIONARY: Record<string, string> = {
   // ── page title (three fragments; the middle one is gold) ────────────────
   "اختر": "Choose",
   "الوسيط الأفضل": "the best broker",
+  // market: the UAE page sells the UAE, the English page sells South Africa.
   "في الامارات وابدأ التداول في دقائق!":
-    "in the UAE and start trading in minutes!",
+    "in South Africa and start trading in minutes!",
 
   // ── country band ────────────────────────────────────────────────────────
-  "افضل الوسطاء في الامارات": "Best brokers in the UAE",
-  "الإمارات العربية المتحدة": "United Arab Emirates",
+  // market: flag + strip name the reader's own country, not the other one's.
+  "افضل الوسطاء في الامارات": "Best brokers in South Africa",
+  "الإمارات العربية المتحدة": "South Africa",
 
   // ── broker cards ────────────────────────────────────────────────────────
-  "الوسيط الأكثر شعبية في الإمارات": "The most popular broker in the UAE",
+  // market:
+  "الوسيط الأكثر شعبية في الإمارات":
+    "The most popular broker in South Africa",
   "زيارة الموقع": "Visit site",
   "التداول يحمل مخاطر": "Trading involves risk",
   "كيف نحسب الدرجة": "How we calculate the score",
@@ -56,13 +67,16 @@ export const EN_DICTIONARY: Record<string, string> = {
   "فروقات سعرية تبدأ من 0.7 نقطة": "Spreads from 0.7 pips",
   "حساب إسلامي بدون فوائد (سواب-فري)":
     "Islamic swap-free account with no interest",
-  "دعم عربي على مدار الساعة": "Arabic-language support around the clock",
+  // market: the Arabic bullet sells Arabic support; South Africa gets the
+  // English equivalent.
+  "دعم عربي على مدار الساعة": "English-language support around the clock",
 
   // Afaq bullets
   "حسابات إسلامية بدون فوائد ربوية": "Islamic accounts with no interest",
   "عروض ترحيبية مستمرة": "Ongoing welcome offers",
   "دعم مباشر محلي وحسابات تجريبية": "Local live support and demo accounts",
-  "تركيز على التعليم باللغة العربية": "A focus on Arabic-language education",
+  // market:
+  "تركيز على التعليم باللغة العربية": "A focus on education in English",
 
   // ── trust sidebar ───────────────────────────────────────────────────────
   "خبرتنا": "Our local",
@@ -102,8 +116,9 @@ export const EN_DICTIONARY: Record<string, string> = {
   "ابدا التداول مع": "Start trading with",
 
   "فوائد التداول عبر الإنترنت": "The benefits of online trading",
+  // market: the Arabic list ends on the Gulf, the English one on Africa.
   "الوصول إلى الأسواق العالمية: يمكنك التداول في مناطق مثل الولايات المتحدة وأوروبا وآسيا والخليج من خلال منصة واحدة.":
-    "Access to global markets: trade in regions such as the United States, Europe, Asia and the Gulf from a single platform.",
+    "Access to global markets: trade in regions such as the United States, Europe, Asia and Africa from a single platform.",
   "تنوع الأسواق: من المعادن والسلع إلى أسهم الشركات الكبرى، يمكنك اختيار المجالات التي تناسب أهدافك.":
     "Market variety: from metals and commodities to the shares of major companies, you can pick the areas that fit your goals.",
   "المرونة والتحكم: التداول في أي وقت، مع القدرة على ضبط حجم المخاطرة لكل صفقة وفقًا لأهدافك.":

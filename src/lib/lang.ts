@@ -1,12 +1,18 @@
 /**
- * Language constants, deliberately kept OUT of i18n.tsx: that module is
- * `"use client"`, and a Server Component (the root layouts, <RootShell>)
+ * Language + market constants, deliberately kept OUT of i18n.tsx: that module
+ * is `"use client"`, and a Server Component (the root layouts, <RootShell>)
  * cannot read a plain value exported across that boundary — it only ever
  * sees a client reference. These are shared by both sides.
  */
 export type Lang = "ar" | "en";
 
-/** Where each language lives. Arabic is the canonical root. */
+/**
+ * Where each edition lives. The two routes are two MARKETS, not two
+ * translations of one page: `/` is the Arabic UAE edition, `/en` is the
+ * English South Africa edition. There is no on-page switch between them —
+ * each is entered from its own ads/search traffic, and hreflang below is what
+ * tells Google which to serve where.
+ */
 export const LANG_PATHS: Record<Lang, string> = {
   ar: "/",
   en: "/en",
@@ -17,8 +23,15 @@ export const LANG_DIR: Record<Lang, "rtl" | "ltr"> = {
   en: "ltr",
 };
 
-/** Label of each language, written in that language. */
-export const LANG_LABELS: Record<Lang, string> = {
-  ar: "العربية",
-  en: "English",
+/**
+ * The market each edition targets: the hreflang tag the layouts declare and
+ * the flag the country band flies. The country's NAME is copy, so it comes
+ * through the dictionary like every other string.
+ */
+export const LANG_MARKET: Record<
+  Lang,
+  { hreflang: string; flag: string }
+> = {
+  ar: { hreflang: "ar-AE", flag: "/assets/img/flags/ae.svg" },
+  en: { hreflang: "en-ZA", flag: "/assets/img/flags/za.svg" },
 };
