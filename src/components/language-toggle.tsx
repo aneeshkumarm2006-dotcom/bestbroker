@@ -1,26 +1,31 @@
 "use client";
 
 import { useLanguage } from "@/lib/i18n";
+import { LANG_LABELS, LANG_PATHS } from "@/lib/lang";
 
 /**
- * Floating language switch pinned to the top of every page. Swaps the whole
- * site between Arabic (the source language) and English; the label always
- * shows the language you'll switch *to*.
+ * Language switch. `/` (Arabic) and `/en` (English) are two separate routes
+ * under two root layouts, so this is a plain anchor that hands the browser a
+ * full document load — not a client-side toggle. The label always names the
+ * language you'll switch *to*, written in that language.
  */
-export function LanguageToggle() {
-  const { lang, toggle } = useLanguage();
+export function LanguageToggle({ className = "" }: { className?: string }) {
+  const { lang } = useLanguage();
+  const other = lang === "ar" ? "en" : "ar";
 
   return (
-    <button
-      type="button"
-      onClick={toggle}
-      aria-label={lang === "ar" ? "Switch to English" : "التبديل إلى العربية"}
+    <a
+      href={LANG_PATHS[other]}
+      hrefLang={other}
       dir="ltr"
-      className="inline-flex items-center gap-2 rounded-full border border-divider bg-surface/90 px-4 py-2 text-sm font-bold text-ink shadow-card backdrop-blur-md transition-all hover:-translate-y-0.5 hover:text-brand hover:shadow-glow"
+      aria-label={
+        other === "en" ? "Switch to English" : "التبديل إلى العربية"
+      }
+      className={`inline-flex items-center gap-2 whitespace-nowrap rounded-cta border border-divider px-3 py-1.5 text-sm font-bold text-muted no-underline transition-colors hover:border-brand hover:text-brand ${className}`}
     >
       <svg
-        width="16"
-        height="16"
+        width="15"
+        height="15"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -28,12 +33,13 @@ export function LanguageToggle() {
         strokeLinecap="round"
         strokeLinejoin="round"
         aria-hidden="true"
+        className="shrink-0"
       >
         <circle cx="12" cy="12" r="10" />
         <path d="M2 12h20" />
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
       </svg>
-      {lang === "ar" ? "English" : "العربية"}
-    </button>
+      {LANG_LABELS[other]}
+    </a>
   );
 }

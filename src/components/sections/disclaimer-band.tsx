@@ -39,11 +39,10 @@ export function DisclaimerBand({ showWarning = true }: DisclaimerBandProps) {
 
         {showWarning && (
           <div className="rounded-xl border border-[#E8C9B4] bg-[#FBF0E8] p-6 lg:p-10">
-            {/* Warning header */}
-            <div className="mb-4 flex items-center justify-end gap-2 text-right">
-              <p className="text-base font-bold text-ink">
-                {t("تحذير من المخاطر")}
-              </p>
+            {/* Warning header — icon then label on the start side, the same
+                side the body copy below reads from, and the same icon-leads-
+                text order the feature bullets and sidebar benefits use. */}
+            <div className="mb-4 flex items-center justify-start gap-2 text-start">
               <svg
                 width="22"
                 height="22"
@@ -62,6 +61,9 @@ export function DisclaimerBand({ showWarning = true }: DisclaimerBandProps) {
                 <path d="M11 9v4" stroke="#9B4F0F" strokeWidth="1.5" strokeLinecap="round" />
                 <circle cx="11" cy="15.5" r="0.75" fill="#9B4F0F" />
               </svg>
+              <p className="text-base font-bold text-ink">
+                {t("تحذير من المخاطر")}
+              </p>
             </div>
             <p className="text-sm leading-relaxed text-muted">
               {t(

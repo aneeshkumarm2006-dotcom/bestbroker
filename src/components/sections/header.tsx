@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
+import { LanguageToggle } from "@/components/language-toggle";
 
 // Single-page site: every nav target is an anchor on this page.
 const NAV_LINKS = [
@@ -88,12 +89,15 @@ export function Header() {
 
             {/* Primary CTA — jumps to the ranked broker list */}
             <a
-              className="mt-3 block whitespace-nowrap rounded-cta border-2 border-ink px-5 py-2 text-center text-sm font-bold text-ink no-underline transition-all hover:bg-ink hover:text-surface sm:mt-0 sm:w-auto lg:mr-4 lg:mt-0"
+              className="mt-3 block whitespace-nowrap rounded-cta border-2 border-ink px-5 py-2 text-center text-sm font-bold text-ink no-underline transition-all hover:bg-ink hover:text-surface sm:mt-0 sm:w-auto lg:ms-4 lg:mt-0"
               href="#brokers"
               onClick={() => setMenuOpen(false)}
             >
               {t("قارن الآن")}
             </a>
+
+            {/* Arabic ⇄ English — a link to the other language's route. */}
+            <LanguageToggle className="mt-3 self-start sm:mt-0 lg:ms-4 lg:mt-0" />
           </div>
         </nav>
       </div>

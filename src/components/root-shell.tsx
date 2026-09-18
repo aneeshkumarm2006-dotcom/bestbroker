@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
-import "./globals.css";
-import "flag-icons/css/flag-icons.min.css";
+
 import { LanguageProvider } from "@/lib/i18n";
+import { LANG_DIR, type Lang } from "@/lib/lang";
 
 // Mizan renders site-wide in Cairo, which ships both Arabic and Latin glyphs —
 // a deliberate brand typeface (the former theme fell back to the system font).
+// The English mirror keeps it, so /en is the same page in the same voice.
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -13,19 +13,24 @@ const cairo = Cairo({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "ميزان - Mizan | أفضل وسطاء التداول في الإمارات 2026",
-  description:
-    "ميزان — وازِن بين أفضل وسطاء التداول المرخّصين في الإمارات. مقارنة مستقلة ومحايدة تساعدك على اختيار الوسيط الأنسب لك.",
-};
+const GTM_ID = "GTM-K2GRK6KD";
 
-export default function RootLayout({
+/**
+ * The document shell shared by both root layouts. `/` (Arabic) and `/en`
+ * (English) live in separate route groups so each can own its own `<html>`
+ * element — that is the only way the server HTML can carry the right
+ * `lang`/`dir` per language. Everything else about the two documents is
+ * identical, so it lives here instead of being copy-pasted.
+ */
+export function RootShell({
+  lang,
   children,
-}: Readonly<{
+}: {
+  lang: Lang;
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
+    <html lang={lang} dir={LANG_DIR[lang]} className={cairo.variable}>
       <head>
         {/* Google Tag Manager */}
         <script
@@ -34,7 +39,7 @@ export default function RootLayout({
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K2GRK6KD');`,
+})(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
         />
         {/* End Google Tag Manager */}
@@ -43,16 +48,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-K2GRK6KD"
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+        <LanguageProvider lang={lang}>{children}</LanguageProvider>
       </body>
     </html>
   );

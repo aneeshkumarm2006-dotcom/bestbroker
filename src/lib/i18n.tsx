@@ -2,35 +2,53 @@
 
 import * as React from "react";
 
-export type Lang = "ar" | "en";
+import { EN_DICTIONARY } from "@/lib/dictionary";
+import { LANG_DIR, type Lang } from "@/lib/lang";
+
+// Re-exported as a type only (erased at compile time) so the many components
+// that already `import { type Lang } from "@/lib/i18n"` keep working.
+export type { Lang };
 
 interface LanguageContextValue {
   lang: Lang;
-  toggle: () => void;
+  dir: "rtl" | "ltr";
   /** Translate an Arabic source string to the active language. */
   t: (arabic: string) => string;
 }
 
 const LanguageContext = React.createContext<LanguageContextValue | null>(null);
 
-const STORAGE_KEY = "mizan-lang";
-
 /**
- * The site is Arabic-only: the English toggle was removed, so the provider
- * pins `lang` to "ar" and `t` passes source strings through. The context API
- * is kept so the ~20 components calling useLanguage() stay untouched.
+ * Language is a property of the ROUTE, not of client state: `/` renders the
+ * Arabic original and `/en` renders the English mirror, each under its own
+ * root layout so `<html lang>` / `<html dir>` are correct in the server HTML.
+ * The provider therefore just carries the route's language down to the
+ * ~20 components that call `useLanguage()`; there is nothing to toggle here
+ * (the header's switch is a plain link to the other route).
  */
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const lang: Lang = "ar";
-
-  // Clear any "en" preference saved before the toggle was removed, so
-  // returning visitors aren't left with a stale value.
-  React.useEffect(() => {
-    window.localStorage.removeItem(STORAGE_KEY);
-  }, []);
-
+export function LanguageProvider({
+  lang,
+  children,
+}: {
+  lang: Lang;
+  children: React.ReactNode;
+}) {
   const value = React.useMemo<LanguageContextValue>(
-    () => ({ lang, toggle: () => {}, t: (arabic: string) => arabic }),
+    () => ({
+      lang,
+      dir: LANG_DIR[lang],
+      t: (arabic: string) => {
+        if (lang === "ar") return arabic;
+        const english = EN_DICTIONARY[arabic];
+        if (english === undefined) {
+          if (process.env.NODE_ENV !== "production") {
+            console.warn(`[i18n] no English for: ${arabic}`);
+          }
+          return arabic;
+        }
+        return english;
+      },
+    }),
     [lang]
   );
 

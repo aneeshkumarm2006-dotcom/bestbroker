@@ -4,13 +4,13 @@ import { LpContainer } from "@/components/amwal-lp/container";
 import { useLanguage } from "@/lib/i18n";
 
 /** UAE flag drawn inline so it can fill the 20×15 box like the reference. */
-function UaeFlag() {
+function UaeFlag({ label }: { label: string }) {
   return (
     <svg
       viewBox="0 0 12 6"
       preserveAspectRatio="none"
       role="img"
-      aria-label="الإمارات العربية المتحدة"
+      aria-label={label}
       className="h-[15px] w-5 shrink-0 rounded-[2px]"
     >
       <path fill="#00843d" d="M0 0h12v6H0z" />
@@ -34,11 +34,11 @@ export default function CountryBand() {
   return (
     <div className="w-full border-y border-divider bg-white">
       <LpContainer className="flex items-center justify-center gap-2 py-2 md:justify-start">
-        <UaeFlag />
+        <UaeFlag label={t("الإمارات العربية المتحدة")} />
         <p className="text-center text-sm font-semibold text-ink">
           {t("افضل الوسطاء في الامارات")}
         </p>
-        <UaeFlag />
+        <UaeFlag label={t("الإمارات العربية المتحدة")} />
       </LpContainer>
     </div>
   );

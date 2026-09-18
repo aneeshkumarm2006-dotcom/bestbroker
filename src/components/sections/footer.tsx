@@ -31,11 +31,11 @@ export function Footer() {
 
         {/* Bottom row — copyright + disclaimer */}
         <div className="flex flex-col gap-6 text-xs leading-relaxed lg:flex-row lg:items-start lg:justify-between">
-          <div className="shrink-0 text-center lg:text-right">
+          <div className="shrink-0 text-center lg:text-start">
             <p>{t("© 2026 ميزان — جميع الحقوق محفوظة.")}</p>
             <p className="mt-1">Aeternum Tech srl. VAT IT17738071004</p>
           </div>
-          <div className="max-w-3xl text-right leading-relaxed opacity-80">
+          <div className="max-w-3xl text-start leading-relaxed opacity-80">
             <p>
               {t(
                 "هذا الموقع مورد مجاني مصمم لمساعدة المستخدمين في اتخاذ قرارات مستنيرة عبر الإنترنت. قد يضم محتوى مدعوماً أو إعلانات، وقد نحصل على عمولة من الوسطاء المذكورين عند تفاعلك معهم."
