@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 758.58 859.933" role="img" aria-label="Analyst presenting broker performance charts">
+  <!--
+    Mizan — South Africa (EN) hero illustration.
+    Original flat-vector drawing, same 758.58 x 859.93 canvas and same
+    "Warm Cream & Gold" palette as the Arabic/UAE illustration so the two
+    editions sit on the same grid: cream surface, gold data, navy ink.
+  -->
+  <defs>
+    <clipPath id="za-flag-clip"><rect x="0" y="0" width="56" height="38" rx="3"/></clipPath>
+  </defs>
+
+  <!-- ground shadow -->
+  <ellipse cx="420" cy="802" rx="308" ry="26" fill="#0B1A30" opacity=".07"/>
+
+  <!-- ================= easel + flipchart ================= -->
+  <g stroke-linecap="round">
+    <!-- back leg, behind the board -->
+    <path d="M236 560 L252 802" stroke="#6B5340" stroke-width="14"/>
+  </g>
+
+  <!-- board -->
+  <rect x="64" y="70" width="352" height="510" rx="6" fill="#FFFFFF"/>
+  <rect x="64" y="70" width="352" height="510" rx="6" fill="none" stroke="#D8D0C0" stroke-width="3"/>
+  <rect x="64" y="70" width="352" height="18" fill="#F2EDE0"/>
+  <!-- clamp -->
+  <rect x="54" y="48" width="372" height="36" rx="8" fill="#8C7B68"/>
+  <rect x="54" y="48" width="372" height="14" rx="7" fill="#6E6051"/>
+
+  <!-- front legs + brace -->
+  <g stroke-linecap="round" fill="none">
+    <path d="M110 556 L60 796" stroke="#7A5F47" stroke-width="16"/>
+    <path d="M370 556 L420 796" stroke="#7A5F47" stroke-width="16"/>
+    <path d="M82 690 L398 690" stroke="#6B5340" stroke-width="10"/>
+  </g>
+
+  <!-- chart title placeholders -->
+  <rect x="100" y="112" width="152" height="16" rx="8" fill="#0B1A30" opacity=".78"/>
+  <rect x="100" y="140" width="98" height="12" rx="6" fill="#D8D0C0"/>
+
+  <!-- South African flag card, pinned top-right of the chart -->
+  <g transform="translate(332 104)">
+    <g clip-path="url(#za-flag-clip)">
+      <rect x="0" y="0" width="56" height="38" fill="#FFFFFF"/>
+      <path d="M0 0 L56 0 L56 12 L26 12 Z" fill="#DE3831"/>
+      <path d="M0 38 L56 38 L56 26 L26 26 Z" fill="#002395"/>
+      <g stroke="#007A4D" stroke-width="7" fill="none" stroke-linecap="butt">
+        <path d="M22 19 L56 19"/>
+        <path d="M22 19 L1 4"/>
+        <path d="M22 19 L1 34"/>
+      </g>
+      <path d="M-2 -2 L18 19 L-2 40 Z" fill="#FFB612"/>
+      <path d="M-2 2 L13 19 L-2 36 Z" fill="#000000"/>
+    </g>
+    <rect x="0" y="0" width="56" height="38" rx="3" fill="none" stroke="#D8D0C0" stroke-width="2"/>
+  </g>
+
+  <!-- bar chart -->
+  <g fill="#C9A83C">
+    <rect x="100" y="354" width="22" height="46" rx="3"/>
+    <rect x="128" y="332" width="22" height="68" rx="3"/>
+    <rect x="156" y="310" width="22" height="90" rx="3"/>
+    <rect x="184" y="288" width="22" height="112" rx="3"/>
+  </g>
+  <g fill="#B59028">
+    <rect x="212" y="266" width="22" height="134" rx="3"/>
+    <rect x="240" y="244" width="22" height="156" rx="3"/>
+  </g>
+  <g fill="#8A6B12">
+    <rect x="268" y="222" width="22" height="178" rx="3"/>
+    <rect x="296" y="200" width="22" height="200" rx="3"/>
+  </g>
+  <path d="M92 400 L344 400" stroke="#D8D0C0" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- trend line above the bars -->
+  <polyline points="111,336 139,314 167,292 195,270 223,248 251,226 279,204 307,182"
+            fill="none" stroke="#0B1A30" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+  <g fill="#0B1A30">
+    <circle cx="111" cy="336" r="5"/><circle cx="195" cy="270" r="5"/>
+    <circle cx="279" cy="204" r="5"/>
+  </g>
+  <circle cx="307" cy="182" r="8" fill="#B59028" stroke="#FFFFFF" stroke-width="4"/>
+
+  <!-- pie chart -->
+  <path d="M168 500 L168 438 A62 62 0 0 1 207.85 547.49 Z" fill="#C9A83C"/>
+  <path d="M168 500 L207.85 547.49 A62 62 0 0 1 120.51 539.85 Z" fill="#B59028"/>
+  <path d="M168 500 L120.51 539.85 A62 62 0 0 1 114.31 469 Z" fill="#8A6B12"/>
+  <path d="M168 500 L114.31 469 A62 62 0 0 1 168 438 Z" fill="#E0CB8A"/>
+  <circle cx="168" cy="500" r="22" fill="#FFFFFF"/>
+
+  <!-- legend -->
+  <g>
+    <rect x="252" y="452" width="16" height="16" rx="4" fill="#C9A83C"/>
+    <rect x="276" y="454" width="96" height="12" rx="6" fill="#D8D0C0"/>
+    <rect x="252" y="484" width="16" height="16" rx="4" fill="#B59028"/>
+    <rect x="276" y="486" width="76" height="12" rx="6" fill="#D8D0C0"/>
+    <rect x="252" y="516" width="16" height="16" rx="4" fill="#8A6B12"/>
+    <rect x="276" y="518" width="86" height="12" rx="6" fill="#D8D0C0"/>
+  </g>
+
+  <!-- ================= presenter ================= -->
+  <!-- back arm: elbow out, hand resting on the hip -->
+  <path d="M624 296 C662 310 682 332 680 358" fill="none" stroke="#D6E0EE" stroke-width="38" stroke-linecap="round"/>
+  <path d="M680 358 C676 392 662 420 648 440" fill="none" stroke="#8A5730" stroke-width="28" stroke-linecap="round"/>
+  <ellipse cx="644" cy="448" rx="20" ry="16" fill="#8A5730" transform="rotate(-22 644 448)"/>
+
+  <!-- trousers: one silhouette with an inner notch, front leg a shade lighter -->
+  <path d="M484 462 L652 462 L641 780 L577 780 L566 566 L554 776 L488 776 Z" fill="#0B1A30"/>
+  <path d="M484 462 L566 462 L566 566 L554 776 L488 776 Z" fill="#162444"/>
+  <!-- shoes -->
+  <path d="M486 764 h60 v20 a8 8 0 0 1 -8 8 h-84 a10 10 0 0 1 0 -20 c18 -1 28 -3 32 -8 Z" fill="#141413"/>
+  <path d="M578 768 h60 v20 a8 8 0 0 0 8 8 h36 a10 10 0 0 0 0 -20 c-18 -1 -28 -3 -32 -8 Z" fill="#141413"/>
+
+  <!-- torso: crisp shirt -->
+  <path d="M528 268 C494 278 486 318 484 358 L482 470 L652 470 L648 358 C646 318 638 278 604 268 Z" fill="#E8EEF6"/>
+  <path d="M528 268 L566 314 L604 268 Z" fill="#FFFFFF"/>
+  <path d="M528 268 L540 266 L566 314 Z" fill="#D2DCEA"/>
+  <path d="M604 268 L592 266 L566 314 Z" fill="#D2DCEA"/>
+  <!-- tie -->
+  <rect x="553" y="292" width="26" height="22" rx="5" fill="#C9A83C"/>
+  <path d="M566 312 L554 332 L566 424 L579 332 Z" fill="#B59028"/>
+  <!-- belt -->
+  <rect x="482" y="446" width="170" height="26" rx="5" fill="#0B1A30"/>
+  <rect x="556" y="450" width="24" height="18" rx="4" fill="#B59028"/>
+
+  <!-- front arm: bent at the elbow, open palm presenting the chart -->
+  <path d="M506 302 L474 360" fill="none" stroke="#D6E0EE" stroke-width="38" stroke-linecap="round"/>
+  <ellipse cx="472" cy="356" rx="19" ry="19" fill="#D6E0EE"/>
+  <path d="M472 354 L438 312" fill="none" stroke="#8A5730" stroke-width="29" stroke-linecap="round"/>
+  <!-- open hand: flat palm along the forearm, thumb splayed toward the board -->
+  <path d="M428 316 L408 314" stroke="#8A5730" stroke-width="13" stroke-linecap="round"/>
+  <path d="M448.1 303.8 L429.1 275.4 A16 16 0 0 0 404.1 295.6 L427.9 320.2 Z" fill="#8A5730"/>
+
+  <!-- head -->
+  <rect x="548" y="234" width="38" height="40" rx="10" fill="#6E4526"/>
+  <ellipse cx="566" cy="178" rx="57" ry="50" fill="#1E160F"/>
+  <ellipse cx="512" cy="208" rx="10" ry="14" fill="#8A5730"/>
+  <ellipse cx="620" cy="208" rx="10" ry="14" fill="#8A5730"/>
+  <ellipse cx="566" cy="206" rx="53" ry="58" fill="#8A5730"/>
+  <path d="M515 186 C526 152 606 152 617 186 C604 168 528 168 515 186 Z" fill="#1E160F"/>
+  <!-- face -->
+  <g fill="#141413">
+    <ellipse cx="546" cy="208" rx="5.5" ry="6.5"/>
+    <ellipse cx="588" cy="208" rx="5.5" ry="6.5"/>
+    <rect x="536" y="190" width="21" height="6" rx="3"/>
+    <rect x="578" y="190" width="21" height="6" rx="3"/>
+  </g>
+  <path d="M549 232 Q566 248 584 232" fill="none" stroke="#141413" stroke-width="5" stroke-linecap="round"/>
+</svg>

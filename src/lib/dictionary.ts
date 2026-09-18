@@ -33,7 +33,10 @@ export const EN_DICTIONARY: Record<string, string> = {
   "في الامارات وابدأ التداول في دقائق!":
     "in South Africa and start trading in minutes!",
 
-  // ── country band ────────────────────────────────────────────────────────
+  // hero illustration alt text
+  "ابحث عن الوسيط الأفضل": "Find the best broker",
+
+  // ── country band ────────────────────────────────────────────────
   // market: flag + strip name the reader's own country, not the other one's.
   "افضل الوسطاء في الامارات": "Best brokers in South Africa",
   "الإمارات العربية المتحدة": "South Africa",

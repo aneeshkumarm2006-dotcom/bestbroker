@@ -5,7 +5,8 @@ import { useLanguage } from "@/lib/i18n";
 /**
  * Left-hand trust column of /mizan-uae-ar (RTL: sits left of the broker list).
  * Amwal's structure — illustration, "local expertise" card, "why us" card with
- * four icon benefits — in Mizan's theme: the home page's scales illustration,
+ * four icon benefits — in Mizan's theme: the market's own analyst illustration
+ * (Gulf on `/`, South African on `/en`),
  * white cards with the brand radius/shadow, gold accents, navy ink.
  *
  * The page assembly owns the column (`hidden md:flex flex-col pb-4 basis-1/4`);
@@ -52,13 +53,17 @@ const BENEFITS: Benefit[] = [
 ];
 
 export default function TrustSidebar() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   return (
     <div className="flex flex-col">
       <div className="me-4 w-3/4">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/img/gcc/illu-1_a.svg"
+          src={
+            lang === "en"
+              ? "/assets/img/gcc/illu-1_za.svg"
+              : "/assets/img/gcc/illu-1_a.svg"
+          }
           alt=""
           className="h-auto w-full"
         />

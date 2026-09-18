@@ -4,13 +4,13 @@ import { useLanguage } from "@/lib/i18n";
 
 /**
  * home--hero — the opening band of the single UAE page.
- * RTL two-column: copy + CTA on the right, scales illustration on the left
+ * RTL two-column: copy + CTA on the right, illustration on the left
  * (desktop); stacked (illustration on top) on mobile. The country picker is
  * gone: the site covers the UAE only, so the CTA scrolls straight to the
  * ranked broker list.
  */
 export function HomeHero() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section className="py-12 lg:py-20">
@@ -21,9 +21,13 @@ export function HomeHero() {
           <div className="relative mx-auto w-8/12 flex-shrink-0 lg:w-[380px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/img/gcc/illu-1_a.svg"
+              src={
+                lang === "en"
+                  ? "/assets/img/gcc/illu-1_za.svg"
+                  : "/assets/img/gcc/illu-1_a.svg"
+              }
               className="relative z-[1] w-full"
-              alt="ابحث عن الوسيط الأفضل"
+              alt={t("ابحث عن الوسيط الأفضل")}
             />
           </div>
 
