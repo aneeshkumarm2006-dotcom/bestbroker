@@ -4,8 +4,13 @@
  * cards — this site endorses exactly 2 brokers, so the page renders 2 cards
  * of identical construction).
  *
- * Affiliate hrefs are the same ones used by src/components/sections/broker-list.tsx.
+ * Affiliate hrefs are per-market: `href` is the UAE/Arabic link and `hrefEn`
+ * the South Africa/English one, because the two editions run on separate
+ * affiliate campaigns. Read them through lpBrokerHref(broker, lang) rather
+ * than touching either field directly.
  */
+import type { Lang } from "@/lib/lang";
+
 export interface LpBroker {
   rank: number;
   name: string;
@@ -17,6 +22,8 @@ export interface LpBroker {
   /** Bullet list, gold check.svg fronting each row. */
   features: string[];
   href: string;
+  /** Affiliate href for the English (/en) edition; falls back to `href`. */
+  hrefEn?: string;
   /** Card #1: 2px gold border + gold-gradient trophy ribbon. */
   highlighted?: boolean;
   ribbon?: string;
@@ -37,6 +44,8 @@ export const lpBrokers: LpBroker[] = [
       "دعم عربي على مدار الساعة",
     ],
     href: "https://evest-ads.com/lp/us-stocks?affiliate_id=40659&campaign_id=136597&clickid=6a982f439c2b0ce7186c7e46&partner_id=c1a486dd6c8f128d0be36f669aa221fe",
+    hrefEn:
+      "https://lp.evestpartners.com/tracking//click/?affid=40659&lpId=21620&adTheme=212&campaign=136597",
     highlighted: true,
     ribbon: "الوسيط الأكثر شعبية في الإمارات",
   },
@@ -52,5 +61,15 @@ export const lpBrokers: LpBroker[] = [
       "تركيز على التعليم باللغة العربية",
     ],
     href: "https://campaign.afaqpartners.trade/Tracking/click/?affid=60034&campaign=1029&product_id=1&t_type=Register",
+    hrefEn:
+      "https://campaign.afaqpartners.trade/Tracking/click/?affid=60034&lpId=20002&adTheme=5&campaign=10291",
   },
 ];
+
+/**
+ * The affiliate href for the active edition: the English page sends traffic
+ * to its own campaign, every other language keeps the UAE link.
+ */
+export function lpBrokerHref(broker: LpBroker, lang: Lang) {
+  return lang === "en" && broker.hrefEn ? broker.hrefEn : broker.href;
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { lpBrokers } from "@/components/amwal-lp/brokers";
+import { lpBrokers, lpBrokerHref } from "@/components/amwal-lp/brokers";
 import { LpContainer } from "@/components/amwal-lp/container";
 import { GreenCta } from "@/components/amwal-lp/green-cta";
 import { useLanguage } from "@/lib/i18n";
@@ -22,8 +22,6 @@ const BODY =
 
 const LIST = `list-decimal ps-10 ${BODY} marker:font-bold marker:text-brand`;
 
-const CTA_HREF = lpBrokers[0].href;
-
 const ASSET_CLASSES = [
   "المعادن الثمينة: الذهب والفضة وغيرها من السلع القيمة.",
   "الموارد الطاقية: النفط والغاز الطبيعي وغيرها من السلع.",
@@ -44,14 +42,14 @@ function H2Bar() {
 }
 
 function ArticleCta() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   return (
     <div
       className={`w-full px-[30%] py-[30px] [@media(max-width:768px)]:px-[30px] ${GAP}`}
     >
       <GreenCta
         flat
-        href={CTA_HREF}
+        href={lpBrokerHref(lpBrokers[0], lang)}
         className="gap-[15px] px-[22px] py-4 text-center [@media(max-width:768px)]:text-[14px] [@media(max-width:768px)]:leading-[21px]"
       >
         {t("ابدا التداول مع")} {lpBrokers[0].name}

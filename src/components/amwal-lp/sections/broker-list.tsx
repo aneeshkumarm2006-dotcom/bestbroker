@@ -3,7 +3,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { Fragment } from "react";
 
-import { lpBrokers, type LpBroker } from "@/components/amwal-lp/brokers";
+import {
+  lpBrokers,
+  lpBrokerHref,
+  type LpBroker,
+} from "@/components/amwal-lp/brokers";
 import { GreenCta } from "@/components/amwal-lp/green-cta";
 import { useLanguage } from "@/lib/i18n";
 
@@ -162,7 +166,7 @@ function BrokerCard({ broker }: { broker: LpBroker }) {
         </div>
         <div className="flex flex-col items-stretch justify-center text-center text-sm md:items-center md:text-start">
           <GreenCta
-            href={broker.href}
+            href={lpBrokerHref(broker, lang)}
             className="-mx-4 my-0 whitespace-nowrap px-20 py-4 md:mx-0 md:my-4"
           >
             {t("زيارة الموقع")}
