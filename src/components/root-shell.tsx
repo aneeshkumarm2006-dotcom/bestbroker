@@ -1,7 +1,7 @@
 import { Cairo } from "next/font/google";
 
 import { LanguageProvider } from "@/lib/i18n";
-import { LANG_DIR, type Lang } from "@/lib/lang";
+import { LANG_DIR, LANG_GTM_ID, type Lang } from "@/lib/lang";
 
 // Mizan renders site-wide in Cairo, which ships both Arabic and Latin glyphs —
 // a deliberate brand typeface (the former theme fell back to the system font).
@@ -12,8 +12,6 @@ const cairo = Cairo({
   variable: "--font-cairo",
   display: "swap",
 });
-
-const GTM_ID = "GTM-K2GRK6KD";
 
 /**
  * The document shell shared by both root layouts. `/` (Arabic, UAE) and
@@ -30,6 +28,8 @@ export function RootShell({
   lang: Lang;
   children: React.ReactNode;
 }) {
+  const gtmId = LANG_GTM_ID[lang];
+
   return (
     <html lang={lang} dir={LANG_DIR[lang]} className={cairo.variable}>
       <head>
@@ -40,7 +40,7 @@ export function RootShell({
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`,
+})(window,document,'script','dataLayer','${gtmId}');`,
           }}
         />
         {/* End Google Tag Manager */}
@@ -49,7 +49,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}

@@ -35,3 +35,13 @@ export const LANG_MARKET: Record<
   ar: { hreflang: "ar-AE", flag: "/assets/img/flags/ae.svg" },
   en: { hreflang: "en-ZA", flag: "/assets/img/flags/za.svg" },
 };
+
+/**
+ * Each edition reports to its OWN Google Tag Manager container, because the
+ * two markets run separate ad accounts and separate conversion tracking.
+ * Mixing them would attribute South African conversions to the UAE container.
+ */
+export const LANG_GTM_ID: Record<Lang, string> = {
+  ar: "GTM-K2GRK6KD",
+  en: "GTM-WPRMF5GP",
+};
